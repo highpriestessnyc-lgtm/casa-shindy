@@ -3,8 +3,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const PRODUCTS = [
-  { key:'kondate', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。', price:980, priceId:'price_kondate', type:'one_time' },
-  { key:'bento', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。', price:980, priceId:'price_bento', type:'one_time' },
+  { key:'kondate', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。', price:490, priceId:'price_kondate', type:'one_time' },
+  { key:'bento', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。', price:490, priceId:'price_bento', type:'one_time' },
   { key:'bingo-ladder', icon:'📊', name:'BINGO LADDER', desc:'SHINDYのFXステージ分析メソッド。Stage 0〜5の相場読みを体系化した実戦ツール。', price:9800, priceId:'price_bingo', type:'one_time', featured:true },
   { key:'stage3d', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化する分析ツール。', price:1650, priceId:'price_stage3d', type:'one_time' },
   { key:'dance-history', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。PDF電子書籍。', price:450, priceId:'price_dance_history', type:'one_time' },
