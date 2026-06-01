@@ -9,8 +9,8 @@ const MARQUEE_ITEMS = [
 ]
 
 const APPS = [
-  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。', price:'¥980', type:'Buy Once', href:'/shop/kondate', member:false },
-  { num:'02', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。毎朝をもっと楽しく。', price:'¥980', type:'Buy Once', href:'/shop/bento', member:false },
+  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。', price:'¥490', type:'Buy Once', href:'/shop/kondate', member:false },
+  { num:'02', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。毎朝をもっと楽しく。', price:'¥490', type:'Buy Once', href:'/shop/bento', member:false },
   { num:'03', icon:'📊', name:'BINGO LADDER', desc:'SHINDYのFXステージ分析メソッド。Stage 0〜5の相場読みを体系化した実戦ツール。', price:'¥9,800', type:'FX Trading Method', href:'/shop/bingo-ladder', member:false, featured:true },
   { num:'04', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。直感的インターフェースで相場の構造が見える。', price:'¥1,650', type:'Buy Once', href:'/shop/stage3d', member:false },
   { num:'05', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。日本のダンスシーンの記録と記憶。', price:'¥450', type:'電子書籍 PDF', href:'/shop/dance-history', member:false },
@@ -27,10 +27,7 @@ const MEMBER_CONTENTS = [
 ]
 
 const SOLILOQUY = [
-  { date:'2026.06.01', title:'相場って、人生に似てる。', preview:'Stage 3に入ったとき、人はいつも焦る。でもそれは…' },
-  { date:'2026.05.28', title:'ダンスで気づいたこと。', preview:'体が覚えるまで、頭で考えるな。それって、FXも…' },
-  { date:'2026.05.24', title:'鹿児島の朝。', preview:'早朝の桜島を見ながら考えてた。Casa Shindyを作ること…' },
-  { date:'2026.05.20', title:'料理と相場、実は同じ。', preview:'レシピ通りに作っても美味しくない日がある。相場も…' },
+  { date:'2026.06.01', title:'近日公開', preview:'昨日は20年30年語り継がれる伝説の日に、、、 },
 ]
 
 export default function Home() {
