@@ -27,7 +27,7 @@ const MEMBER_CONTENTS = [
 ]
 
 const SOLILOQUY = [
-  { date:'2026.06.01', title:'近日公開', preview:'昨日は20年30年語り継がれる伝説の日に、、、 },
+  { date:'2026.06.01', title:'近日公開', preview:'昨日は20年30年語り継がれる伝説の日に、、、' },
 ]
 
 export default function Home() {
