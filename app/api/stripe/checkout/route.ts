@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       // 月額サブスク
       const session = await stripe.checkout.sessions.create({
         mode: 'subscription',
-        payment_method_types: ['card'],
+        payment_method_types: ['card', 'paypay'],
         line_items: [{ price: priceId, quantity: 1 }],
         success_url: `${baseUrl}/members?success=1`,
         cancel_url: `${baseUrl}/join`,
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
       // 単品購入
       const session = await stripe.checkout.sessions.create({
         mode: 'payment',
-        payment_method_types: ['card'],
+        payment_method_types: ['card', 'paypay'],
         line_items: [{ price: priceId, quantity: 1 }],
         success_url: `${baseUrl}/shop/${productKey}/download?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${baseUrl}/shop/${productKey}`,
