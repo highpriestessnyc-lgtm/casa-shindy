@@ -11,7 +11,7 @@ export default function JoinPage() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        priceId: process.env.STRIPE_MEMBERSHIP_PRICE_ID || '',
+        priceId: process.env.NEXT_PUBLIC_STRIPE_MEMBERSHIP_PRICE_ID || '',
         type: 'subscription',
       }),
     })
