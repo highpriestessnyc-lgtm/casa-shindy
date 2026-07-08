@@ -17,7 +17,7 @@ const PRODUCTS = [
 export default function ShopPage() {
   const [loading, setLoading] = useState(null)
 
-  const handleBuy = async (product) => {
+  const handleBuy = async (product: any) => {
     if (product.type === 'free') { window.location.href = product.href; return }
     if (product.type === 'link') { window.open(product.href, '_blank'); return }
     setLoading(product.key)
