@@ -1,17 +1,16 @@
-import { createSupabaseServerClient } from '@/lib/supabase-server'
-import { redirect } from 'next/navigation'
+'use client'
+import { useState } from 'react'
+import { createClient } from '@supabase/supabase-js'
 
 async function checkAuth() {
+  const { createSupabaseServerClient } = await import('@/lib/supabase-server')
+  const { redirect } = await import('next/navigation')
   const supabase = await createSupabaseServerClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/auth/login')
   const { data: profile } = await supabase.from('profiles').select('is_member').eq('id', user.id).single()
   if (!profile?.is_member && user.email !== 'high.priestess.nyc@gmail.com') redirect('/join')
 }
-
-'use client'
-import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
 
 export default function AccountPage() {
   const [loading, setLoading] = useState(false)
