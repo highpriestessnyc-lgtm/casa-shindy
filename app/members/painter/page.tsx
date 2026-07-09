@@ -6,7 +6,7 @@ async function checkAuth() {
   const supabase = await createSupabaseServerClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/auth/login')
-  const { data: profile } = await supabase.from('profiles').select('is_member').eq('id', user.id).single()
+  const { data: profile } = await supabase.from('profiles').select('is_member').eq('id', user!.id).single()
   if (!profile?.is_member && user?.email !== 'high.priestess.nyc@gmail.com') redirect('/join')
 }
 
