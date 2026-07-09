@@ -21,7 +21,7 @@ function LoginForm() {
     )
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) { setError(error.message); setLoading(false); return }
-    window.location.href = redirect
+    await new Promise(r => setTimeout(r, 500)); window.location.href = redirect
   }
 
   return (
