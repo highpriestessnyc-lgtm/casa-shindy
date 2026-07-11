@@ -9,7 +9,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const searchParams = useSearchParams()
-  const redirect = searchParams.get('redirect') || '/members'
+  const redirect = searchParams.get('redirect') || '/admin'
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
