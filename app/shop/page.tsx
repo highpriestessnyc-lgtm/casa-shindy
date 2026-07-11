@@ -6,7 +6,7 @@ const PRODUCTS = [
   { key:'bento', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理。', price:490, priceId:'price_bento', type:'one_time' },
   { key:'bingo-ladder', icon:'📊', name:'BINGO LADDER', desc:'FXステージ分析メソッド。', price:9800, priceId:'price_bingo', type:'one_time', featured:true },
   { key:'stage3d', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。', price:5900, href:'https://highpriestessnyc-lgtm.github.io/stage3d', type:'link' },
-  { key:'dance-history', icon:'📖', name:'ダンスの歴史本', desc:'ストリートダンスの歴史書。PDF。', price:450, priceId:'price_dance_history', type:'one_time' },
+  { key:'dance-history', icon:'📖', name:'ダンスの歴史本', desc:'ストリートダンスの歴史書。会員は無料。', price:450, href:'/members/dance-history', type:'link', memberFree:true },
   { key:'dancing-quest', icon:'🎮', name:'Dancing Quest', desc:'ダンサー育成ゲーム。無料DL。', price:0, href:'/shop/dancing-quest/download', type:'free' },
   { key:'bingo-analyzer', icon:'📈', name:'BINGO ANALYZER PRO', desc:'チャート分析AIツール。会員無料。', price:3500, href:'https://bingo-analyzer-pro.vercel.app', type:'link', memberFree:true },
   { key:'word-street', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語。会員無料。', price:490, href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', type:'link', memberFree:true },
