@@ -149,7 +149,7 @@ export default function Home() {
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
             {APPS.map((app) => (
-              <a key={app.num} href={app.href}
+              <a key={app.num} href={app.href} style={{ textDecoration:"none", display:"block" }}>
                 <div style={{ background: app.featured ? 'linear-gradient(160deg,#1a1008,#161616)' : '#0d0d0d', padding:'2.5rem 2rem', position:'relative', overflow:'hidden', cursor:'pointer', border: app.featured ? '1px solid rgba(201,169,110,0.18)' : 'none', height:'100%', display:'flex', flexDirection:'column' }}>
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(201,169,110,0.25),transparent)' }} />
                   <div style={{ position:'absolute', top:0, right:0, width:36, height:36, background:'rgba(201,169,110,0.08)', clipPath:'polygon(100% 0,100% 100%,0 0)' }} />
