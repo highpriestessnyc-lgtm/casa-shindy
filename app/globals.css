@@ -22,35 +22,30 @@ body { background: #080808; color: #f8f6f2; font-family: 'Didact Gothic', sans-s
 }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+
+}
+
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem !important; }
-  nav .nav-links { display: none !important; }
-  
-  section { 
-    padding-left: 1.5rem !important; 
-    padding-right: 1.5rem !important;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+  /* ナビ修正 */
+  nav { 
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
   }
   
-  /* グリッドを1列に */
-  div[style*="gridTemplateColumns"] {
+  /* 2カラムを1カラムに */
+  .member-card {
     grid-template-columns: 1fr !important;
   }
   
-  /* フォントサイズ調整 */
-  h1[style*="15rem"] { font-size: 4rem !important; }
-  h1[style*="11rem"] { font-size: 3.5rem !important; }
-  
-  /* 横並びを縦に */
-  div[style*="display:'flex'"][style*="gap"] {
-    flex-wrap: wrap !important;
+  /* 縦書き防止 */
+  * {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
   }
   
-  /* パディング調整 */
-  div[style*="padding:'5rem 4rem'"],
-  div[style*="padding:'6rem 4rem'"],
-  div[style*="padding:'8rem 4rem'"] {
-    padding: 3rem 1.5rem !important;
+  /* padding調整 */
+  div, section, main {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
 }
