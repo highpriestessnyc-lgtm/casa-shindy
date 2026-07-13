@@ -18,7 +18,7 @@ const APPS = [
   { num:'07', icon:'📈', name:'BINGO ANALYZER PRO', desc:'BINGO LADDERのチャート分析AIツール。会員は無料。', price:'¥3,500', type:'会員無料', href:'https://bingo-analyzer-pro.vercel.app', member:true },
   { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', member:true },
   { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://cosmic-calendar-six.vercel.app', member:true },
-  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'https://highpriestessnyc-lgtm.github.io/kokushi/kokushi_nenpyou.html', member:true },
+  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'https://highpriestessnyc-lgtm.github.io/kokushi/', member:true },
 ]
 
 const MEMBER_CONTENTS = [
