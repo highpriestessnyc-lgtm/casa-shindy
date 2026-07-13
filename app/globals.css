@@ -25,6 +25,9 @@ body { background: #080808; color: #f8f6f2; font-family: 'Didact Gothic', sans-s
 
 }
 
+
+}
+
 @media (max-width: 768px) {
   /* ナビ修正 */
   nav { 
