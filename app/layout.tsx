@@ -1,9 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Casa Shindy — Official Fan Page',
   description: 'ダンス・FX・アプリ・アート。SHINDYのすべてが、ここに集まる。',
+  appleWebApp: {
+    title: 'Casa Shindy',
+    statusBarStyle: 'black-translucent',
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#080808',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

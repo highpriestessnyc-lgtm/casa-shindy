@@ -19,6 +19,7 @@ const APPS = [
   { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', member:true },
   { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://cosmic-calendar-six.vercel.app', member:true },
   { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'https://highpriestessnyc-lgtm.github.io/kokushi/', member:true },
+  { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
 ]
 
 const MEMBER_CONTENTS = [
@@ -160,7 +161,7 @@ export default function Home() {
                   <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginBottom:'0.2rem' }}>{app.price}</div>
                   <div style={{ fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.3)', marginBottom:'1.2rem' }}>{app.type}</div>
                   <span style={{ fontSize:'0.58rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
-                    {app.price === '無料' ? '無料ダウンロード →' : '購入する →'}
+                    {app.price === '無料' ? '無料ダウンロード →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
                   </span>
                 </div>
               </a>
