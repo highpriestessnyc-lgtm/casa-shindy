@@ -22,6 +22,26 @@ const APPS = [
   { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
 ]
 
+function renderAppCard(app: any) {
+  return (
+    <a key={app.num} href={app.href} style={{ textDecoration:"none", display:"block" }}>
+      <div style={{ background: app.featured ? 'linear-gradient(160deg,#1a1008,#161616)' : '#0d0d0d', padding:'2.5rem 2rem', position:'relative', overflow:'hidden', cursor:'pointer', border: app.featured ? '1px solid rgba(201,169,110,0.18)' : 'none', height:'100%', display:'flex', flexDirection:'column' }}>
+        <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(201,169,110,0.25),transparent)' }} />
+        <div style={{ position:'absolute', top:0, right:0, width:36, height:36, background:'rgba(201,169,110,0.08)', clipPath:'polygon(100% 0,100% 100%,0 0)' }} />
+        <span style={{ position:'absolute', top:'1.4rem', left:'2rem', fontFamily:"'Bebas Neue',sans-serif", fontSize:'0.9rem', color:'rgba(201,169,110,0.12)', letterSpacing:'0.1em' }}>{app.num}</span>
+        <span style={{ fontSize:'2rem', marginBottom:'1.4rem', display:'block', marginTop:'0.5rem' }}>{app.icon}</span>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.4rem', color: app.featured ? '#c9a96e' : '#f8f6f2', marginBottom:'0.5rem' }}>{app.name}</div>
+        <p style={{ fontSize:'0.73rem', lineHeight:1.9, color:'rgba(248,246,242,0.4)', marginBottom:'1.2rem', flex:1 }}>{app.desc}</p>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginBottom:'0.2rem' }}>{app.price}</div>
+        <div style={{ fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.3)', marginBottom:'1.2rem' }}>{app.type}</div>
+        <span style={{ fontSize:'0.58rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
+          {app.price === '無料' ? '無料ダウンロード →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
+        </span>
+      </div>
+    </a>
+  )
+}
+
 const MEMBER_CONTENTS = [
   { icon:'💃', title:'Monthly Dance Lesson', sub:'月1回以上更新 — 動画レクチャー', badge:'Monthly' },
   { icon:'✍️', title:'シンディの独り言', sub:'日常・思考・音楽・旅のテキスト', badge:'Daily' },
@@ -148,24 +168,20 @@ export default function Home() {
             <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>Apps & Tools</h2>
             <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員登録不要 — 誰でも購入可能</span>
           </div>
+
+          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>会員なら無料</span>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
+            {APPS.filter(app => app.member).map(renderAppCard)}
+          </div>
+
+          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.5)', display:'block', marginBottom:'1rem' }}>買い切り(完全有料)</span>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
+            {APPS.filter(app => !app.member && app.price !== '無料').map(renderAppCard)}
+          </div>
+
+          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.5)', display:'block', marginBottom:'1rem' }}>無料</span>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
-            {APPS.map((app) => (
-              <a key={app.num} href={app.href} style={{ textDecoration:"none", display:"block" }}>
-                <div style={{ background: app.featured ? 'linear-gradient(160deg,#1a1008,#161616)' : '#0d0d0d', padding:'2.5rem 2rem', position:'relative', overflow:'hidden', cursor:'pointer', border: app.featured ? '1px solid rgba(201,169,110,0.18)' : 'none', height:'100%', display:'flex', flexDirection:'column' }}>
-                  <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,transparent,rgba(201,169,110,0.25),transparent)' }} />
-                  <div style={{ position:'absolute', top:0, right:0, width:36, height:36, background:'rgba(201,169,110,0.08)', clipPath:'polygon(100% 0,100% 100%,0 0)' }} />
-                  <span style={{ position:'absolute', top:'1.4rem', left:'2rem', fontFamily:"'Bebas Neue',sans-serif", fontSize:'0.9rem', color:'rgba(201,169,110,0.12)', letterSpacing:'0.1em' }}>{app.num}</span>
-                  <span style={{ fontSize:'2rem', marginBottom:'1.4rem', display:'block', marginTop:'0.5rem' }}>{app.icon}</span>
-                  <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.4rem', color: app.featured ? '#c9a96e' : '#f8f6f2', marginBottom:'0.5rem' }}>{app.name}</div>
-                  <p style={{ fontSize:'0.73rem', lineHeight:1.9, color:'rgba(248,246,242,0.4)', marginBottom:'1.2rem', flex:1 }}>{app.desc}</p>
-                  <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginBottom:'0.2rem' }}>{app.price}</div>
-                  <div style={{ fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.3)', marginBottom:'1.2rem' }}>{app.type}</div>
-                  <span style={{ fontSize:'0.58rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
-                    {app.price === '無料' ? '無料ダウンロード →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
-                  </span>
-                </div>
-              </a>
-            ))}
+            {APPS.filter(app => app.price === '無料').map(renderAppCard)}
           </div>
         </div>
       </section>
