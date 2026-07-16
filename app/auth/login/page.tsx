@@ -1,6 +1,6 @@
 'use client'
 import { useState, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 
 function LoginForm() {
@@ -8,6 +8,7 @@ function LoginForm() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const router = useRouter()
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect') || ''
 
@@ -23,7 +24,7 @@ function LoginForm() {
     if (error) { setError(error.message); setLoading(false); return }
     const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
     const destination = redirect || (isAdmin ? '/admin' : '/members')
-    await new Promise(r => setTimeout(r, 2000)); window.location.href = destination
+    router.push(destination)
   }
 
   return (
