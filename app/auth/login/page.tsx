@@ -9,7 +9,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const searchParams = useSearchParams()
-  const redirect = searchParams.get('redirect') || '/admin'
+  const redirect = searchParams.get('redirect') || ''
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,9 +19,11 @@ function LoginForm() {
       'https://gebjrhwfaoyjgmysplhb.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
     )
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) { setError(error.message); setLoading(false); return }
-    await new Promise(r => setTimeout(r, 500)); window.location.href = redirect
+    const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
+    const destination = redirect || (isAdmin ? '/admin' : '/members')
+    await new Promise(r => setTimeout(r, 500)); window.location.href = destination
   }
 
   return (
