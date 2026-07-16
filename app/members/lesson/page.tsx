@@ -1,3 +1,7 @@
+import { createSupabaseServerClient } from '@/lib/supabase-server'
+
+export default async function LessonPage() {
+  const supabase = await createSupabaseServerClient()
   const { data: lessons } = await supabase.from('lessons').select('*').eq('is_published', true).order('created_at', { ascending: false })
   return (
     <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem' }}>
