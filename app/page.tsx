@@ -9,16 +9,16 @@ const MARQUEE_ITEMS = [
 ]
 
 const APPS = [
-  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。', price:'¥490', type:'Buy Once', href:'https://highpriestessnyc-lgtm.github.io/kondate-app/', member:false },
-  { num:'02', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。毎朝をもっと楽しく。', price:'¥490', type:'Buy Once', href:'/shop', member:false },
+  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。会員は無料。', price:'¥490', type:'会員無料', href:'/access/kondate', member:true },
+  { num:'02', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。毎朝をもっと楽しく。会員は無料。', price:'¥490', type:'会員無料', href:'/shop', member:true },
   { num:'03', icon:'📊', name:'BINGO LADDER', desc:'SHINDYのFXステージ分析メソッド。Stage 0〜5の相場読みを体系化した実戦ツール。', price:'¥9,800', type:'FX Trading Method', href:'/shop', member:false, featured:true },
   { num:'04', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。直感的インターフェースで相場の構造が見える。', price:'¥5,900', type:'Buy Once', href:'https://highpriestessnyc-lgtm.github.io/stage3d', member:false },
-  { num:'05', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。日本のダンスシーンの記録と記憶。', price:'¥450', type:'電子書籍 PDF', href:'/members/dance-history', member:false },
+  { num:'05', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。日本のダンスシーンの記録と記憶。会員は無料。', price:'¥450', type:'会員無料', href:'/members/dance-history', member:true },
   { num:'06', icon:'🎮', name:'Dancing Quest', desc:'SHINDYが作ったダンサー育成ゲーム。Casa Shindyで無料ダウンロード。', price:'無料', type:'Casa Shindy限定DL', href:'/shop/dancing-quest/download', member:false },
-  { num:'07', icon:'📈', name:'BINGO ANALYZER PRO', desc:'BINGO LADDERのチャート分析AIツール。会員は無料。', price:'¥3,500', type:'会員無料', href:'https://bingo-analyzer-pro.vercel.app', member:true },
-  { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', member:true },
-  { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。会員は無料。', price:'¥490', type:'会員無料', href:'https://cosmic-calendar-six.vercel.app', member:true },
-  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'https://highpriestessnyc-lgtm.github.io/kokushi/', member:true },
+  { num:'07', icon:'📈', name:'BINGO ANALYZER PRO', desc:'BINGO LADDERのチャート分析AIツール。会員は無料。', price:'¥3,500', type:'会員無料', href:'/access/bingo-analyzer', member:true },
+  { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。会員は無料。', price:'¥490', type:'会員無料', href:'/access/word-street', member:true },
+  { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。会員は無料。', price:'¥490', type:'会員無料', href:'/access/cosmic-calendar', member:true },
+  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'/access/kokushi', member:true },
   { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
 ]
 
