@@ -1,3 +1,7 @@
+import { createSupabaseServerClient } from '@/lib/supabase-server'
+
+export default async function BooksPage() {
+  const supabase = await createSupabaseServerClient()
   const { data: posts } = await supabase.from('posts').select('*').eq('category', 'books').eq('is_published', true).order('created_at', { ascending: false })
   return (
     <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem' }}>
