@@ -23,7 +23,7 @@ function LoginForm() {
     if (error) { setError(error.message); setLoading(false); return }
     const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
     const destination = redirect || (isAdmin ? '/admin' : '/members')
-    await new Promise(r => setTimeout(r, 500)); window.location.href = destination
+    await new Promise(r => setTimeout(r, 2000)); window.location.href = destination
   }
 
   return (
