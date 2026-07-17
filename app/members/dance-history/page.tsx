@@ -1,10 +1,9 @@
 import { createSupabaseServerClient } from '@/lib/supabase-server'
-import { redirect } from 'next/navigation'
 
 export default async function DanceHistoryPage() {
   const supabase = await createSupabaseServerClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/auth/login')
+
   return (
     <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem', color:'#f8f6f2' }}>
       <div style={{ maxWidth:720, margin:'0 auto' }}>
