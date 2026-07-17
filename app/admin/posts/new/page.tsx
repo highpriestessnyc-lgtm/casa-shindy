@@ -13,6 +13,8 @@ export default function NewPostPage() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [category, setCategory] = useState('soliloquy')
+  const [imageUrl, setImageUrl] = useState('')
+  const [videoUrl, setVideoUrl] = useState('')
   const [isPublished, setIsPublished] = useState(true)
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
@@ -21,7 +23,7 @@ export default function NewPostPage() {
     e.preventDefault()
     setLoading(true)
     const supabase = getSupabase()
-    const { error } = await supabase.from('posts').insert({ title, content, category, is_published: isPublished })
+    const { error } = await supabase.from('posts').insert({ title, content, category, is_published: isPublished, image_url: imageUrl, video_url: videoUrl })
     if (error) { alert(error.message); setLoading(false); return }
     setDone(true)
     setTimeout(() => router.push('/admin'), 1500)
@@ -37,6 +39,10 @@ export default function NewPostPage() {
         </select>
         <input type="text" value={title} onChange={e=>setTitle(e.target.value)} required placeholder="Title" style={inp} />
         <textarea value={content} onChange={e=>setContent(e.target.value)} required placeholder="Content..." rows={16} style={{ ...inp, resize:'vertical' as const }} />
+        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>画像URL（任意）</label>
+        <input type="url" value={imageUrl} onChange={e=>setImageUrl(e.target.value)} placeholder="https://..." style={inp} />
+        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>動画URL（YouTube等・任意）</label>
+        <input type="url" value={videoUrl} onChange={e=>setVideoUrl(e.target.value)} placeholder="https://youtube.com/watch?v=..." style={inp} />
         <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'1.5rem' }}>
           <input type="checkbox" checked={isPublished} onChange={e=>setIsPublished(e.target.checked)} />
           <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)' }}>Publish now</span>
