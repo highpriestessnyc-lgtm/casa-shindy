@@ -4,21 +4,33 @@ export default async function BooksPage() {
   const supabase = await createSupabaseServerClient()
   const { data: posts } = await supabase.from('posts').select('*').eq('category', 'books').eq('is_published', true).order('created_at', { ascending: false })
   return (
-    <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem' }}>
-      <div style={{ maxWidth:720, margin:'0 auto' }}>
-        <a href="/members" style={{ color:'rgba(248,246,242,0.4)', textDecoration:'none', fontSize:'0.7rem' }}>← Back</a>
-        <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'3rem', color:'#f8f6f2', margin:'2rem 0', fontWeight:300 }}>文庫・漫画</h1>
-        <div style={{ display:'flex', flexDirection:'column', gap:'2px' }}>
-          {posts?.map((post: any) => (
-            <div key={post.id} style={{ background:'#111', border:'1px solid rgba(255,255,255,0.07)', padding:'2rem' }}>
-              <div style={{ fontSize:'0.6rem', color:'rgba(248,246,242,0.3)', marginBottom:'0.8rem' }}>{new Date(post.created_at).toLocaleDateString('ja-JP')}</div>
-              <h2 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.3rem', color:'#f8f6f2', marginBottom:'1rem', fontWeight:300 }}>{post.title}</h2>
-              <p style={{ fontSize:'0.85rem', lineHeight:2, color:'rgba(248,246,242,0.6)', whiteSpace:'pre-wrap' }}>{post.content}</p>
+    <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh' }}>
+      <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'clamp(2rem,4vw,3rem)', color:'#f8f6f2', fontWeight:300, marginBottom:'0.3rem' }}>文庫・漫画</h1>
+      <div style={{ width:40, height:2, background:'#3498db', marginBottom:'3rem' }}></div>
+      <div style={{ display:'flex', flexDirection:'column', gap:'1.5rem' }}>
+        {posts?.map((post: any) => (
+          <article key={post.id} style={{
+            background:'linear-gradient(135deg,#111,#0d0d0d)',
+            border:'1px solid rgba(52,152,219,0.12)',
+            borderLeft:'3px solid #3498db',
+            padding:'2rem 2.5rem',
+            position:'relative',
+            boxShadow:'0 4px 24px rgba(0,0,0,0.4), inset 0 0 60px rgba(52,152,219,0.12)',
+          }}>
+            <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:'linear-gradient(90deg,#3498db,transparent)' }}></div>
+            <div style={{ fontSize:'0.58rem', letterSpacing:'0.3em', color:'#3498db', opacity:0.7, marginBottom:'0.8rem' }}>
+              {new Date(post.created_at).toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric' })}
             </div>
-          ))}
-          {!posts?.length && <div style={{ textAlign:'center', padding:'4rem', color:'rgba(248,246,242,0.3)' }}>まだ投稿がありません</div>}
-        </div>
+            <h2 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2', marginBottom:'1.2rem', fontWeight:300 }}>{post.title}</h2>
+            <p style={{ fontSize:'0.85rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', whiteSpace:'pre-wrap' }}>{post.content}</p>
+          </article>
+        ))}
+        {!posts?.length && (
+          <div style={{ textAlign:'center', padding:'5rem', color:'rgba(248,246,242,0.2)', fontSize:'0.85rem', border:'1px solid rgba(255,255,255,0.05)' }}>
+            まだ投稿がありません
+          </div>
+        )}
       </div>
-    </main>
+    </div>
   )
 }
