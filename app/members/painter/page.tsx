@@ -1,5 +1,4 @@
 export default async function PainterPage() {
-  await checkAuth()
   const supabase = await createSupabaseServerClient()
   const { data: artworks } = await supabase
     .from('artworks')
