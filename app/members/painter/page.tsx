@@ -36,7 +36,7 @@ export default async function PainterPage() {
                     {art.is_sold ? '———' : art.price ? `¥${art.price.toLocaleString()}` : ''}
                   </span>
                   {!art.is_sold && (
-                    <a href="https://instagram.com/ma_painter" target="_blank" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'#080808', background:'#c9a96e', padding:'0.4rem 1rem', textDecoration:'none', fontWeight:'bold' }}>購入希望 →</a>
+                    <a href="https://www.instagram.com/mapain_ter/" target="_blank" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'#080808', background:'#c9a96e', padding:'0.4rem 1rem', textDecoration:'none', fontWeight:'bold' }}>購入希望 →</a>
                   )}
                 </div>
               </div>
