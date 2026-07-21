@@ -99,7 +99,7 @@ export default function Home() {
             <span style={{ display:'block', color:'transparent', WebkitTextStroke:'2px #c9a96e' }}>Shindy</span>
           </h1>
           <p style={{ fontSize:'0.82rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:480, borderLeft:'2px solid #c9a96e', paddingLeft:'1.2rem', marginBottom:'2.5rem' }}>
-            ダンス・FX・アプリ・ゲーム・料理・アート・カルチャー。SHINDYのすべてが、ここに集まる。月500円で、このWORLDへ。
+            ダンス・FX・アプリ・ゲーム・料理・アート・カルチャー。SHINDYのすべてが、ここに集まる。このWORLDへ。
           </p>
           <div style={{ display:'flex', gap:'1rem', alignItems:'center', flexWrap:'wrap' }}>
             <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', textDecoration:'none' }}>今すぐ参加する</Link>
@@ -135,10 +135,10 @@ export default function Home() {
           <div style={{ border:'1px solid rgba(255,255,255,0.07)', display:'grid', gridTemplateColumns:'1fr 1fr', overflow:'hidden' }}>
             {/* Left */}
             <div style={{ padding:'3rem', background:'linear-gradient(135deg,rgba(201,169,110,0.08),transparent)', borderRight:'1px solid rgba(255,255,255,0.07)', position:'relative', overflow:'hidden' }}>
-              <div style={{ position:'absolute', bottom:'-1rem', right:'-1rem', fontFamily:"'Bebas Neue',sans-serif", fontSize:'8rem', color:'rgba(201,169,110,0.04)', lineHeight:1, pointerEvents:'none' }}>¥500</div>
-              <div style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'5rem', color:'#c9a96e', lineHeight:1, marginBottom:'0.2rem' }}>¥500</div>
+              
+              <div style={{ fontSize:'0.8rem', color:'#c9a96e', letterSpacing:'0.3em', marginBottom:'0.5rem' }}>¥500 / month</div>
               <div style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.35)', marginBottom:'1.5rem' }}>/ month — 月額</div>
-              <p style={{ fontSize:'0.78rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>SHINDYのダンス・FX・カルチャー・アート。すべてが月500円。アプリは別途購入、会員は優先購入権あり。</p>
+              <p style={{ fontSize:'0.78rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>SHINDYのダンス・FX・カルチャー・アート。会員限定コンテンツが楽しめます。</p>
               <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none', display:'inline-block' }}>今すぐ参加</Link>
             </div>
             {/* Right */}
@@ -190,7 +190,7 @@ export default function Home() {
           <div className="reveal opacity-0 translate-y-5 transition-all duration-700">
             <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Culture</span>
             <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>SHINDYのカルチャー</h2>
-            <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定 — ¥500/月でアクセス</span>
+            <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定</span>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
             {[
@@ -292,7 +292,7 @@ export default function Home() {
             <span style={{ display:'block', color:'transparent', WebkitTextStroke:'2px #c9a96e' }}>Casa</span>
             <span style={{ display:'block', color:'#c9a96e' }}>Shindy</span>
           </div>
-          <p style={{ fontSize:'0.8rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:440, margin:'0 auto 2rem' }}>SHINDYのダンス・FX・カルチャー・アート。月たった500円で、すべてが開く。いつでも解約できます。</p>
+          <p style={{ fontSize:'0.8rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:440, margin:'0 auto 2rem' }}>SHINDYのダンス・FX・カルチャー・アート。すべてが開く。いつでも解約できます。</p>
 <span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', marginBottom:'2.5rem', display:'block' }}>CANCEL ANYTIME</span>
           <div style={{ display:'flex', flexWrap:'wrap', justifyContent:'center', gap:'0.5rem', marginBottom:'2.5rem' }}>
             {['Monthly Lesson','独り言','相場配信','映画・漫画','4スタンス','限定Shop','MA@PAINTER'].map((t) => (
