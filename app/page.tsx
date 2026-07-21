@@ -80,7 +80,7 @@ export default function Home() {
             <a key={href} href={href} style={{ fontSize:'0.56rem', letterSpacing:'0.35em', textTransform:'uppercase', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>{label}</a>
           ))}
           <Link href="/auth/login" style={{ fontSize:'0.56rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>ログイン</Link>
-          <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.7rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>¥500 / 月で参加</Link>
+          <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.7rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>Members →</Link>
         </div>
       </nav>
 
@@ -104,9 +104,7 @@ export default function Home() {
           <div style={{ display:'flex', gap:'1rem', alignItems:'center', flexWrap:'wrap' }}>
             <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', textDecoration:'none' }}>今すぐ参加する</Link>
             <a href="#apps" style={{ background:'transparent', color:'rgba(248,246,242,0.4)', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>コンテンツを見る</a>
-            <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginLeft:'0.5rem' }}>
-              ¥500<span style={{ fontStyle:'normal', fontSize:'0.6rem', color:'rgba(248,246,242,0.35)', display:'block', letterSpacing:'0.2em' }}>per month</span>
-            </div>
+
           </div>
         </div>
 
@@ -295,8 +293,7 @@ export default function Home() {
             <span style={{ display:'block', color:'#c9a96e' }}>Shindy</span>
           </div>
           <p style={{ fontSize:'0.8rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:440, margin:'0 auto 2rem' }}>SHINDYのダンス・FX・カルチャー・アート。月たった500円で、すべてが開く。いつでも解約できます。</p>
-          <div style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'clamp(5rem,16vw,12rem)', color:'#c9a96e', lineHeight:1, display:'block', margin:'1rem 0 0.3rem' }}>¥500</div>
-          <span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', marginBottom:'2.5rem', display:'block' }}>PER MONTH — CANCEL ANYTIME</span>
+<span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', marginBottom:'2.5rem', display:'block' }}>CANCEL ANYTIME</span>
           <div style={{ display:'flex', flexWrap:'wrap', justifyContent:'center', gap:'0.5rem', marginBottom:'2.5rem' }}>
             {['Monthly Lesson','独り言','相場配信','映画・漫画','4スタンス','限定Shop','MA@PAINTER'].map((t) => (
               <span key={t} style={{ fontSize:'0.56rem', letterSpacing:'0.2em', textTransform:'uppercase', border:'1px solid rgba(255,255,255,0.07)', padding:'0.35rem 0.8rem', color:'rgba(248,246,242,0.35)' }}>{t}</span>
