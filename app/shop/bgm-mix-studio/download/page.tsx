@@ -23,11 +23,11 @@ export default async function BgmMixStudioDownload() {
         <p style={{ fontSize:'0.78rem', lineHeight:2, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>
           ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX(ディレイ/リバーブ/宇宙人声)・ナレーション機能・複数選択・Undo/Redo対応。
         </p>
-        <a href="/apps/bgm-mix-studio.zip" download style={{ display:'block', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.68rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.1rem 2rem', textDecoration:'none', fontWeight:'bold', marginBottom:'1rem' }}>
-          ⬇️ ダウンロード
+        <a href="https://github.com/highpriestessnyc-lgtm/casa-shindy/releases/download/bgm-mix-studio-v1.0.0/BGM.MIX.STUDIO-1.0.0-arm64.dmg" style={{ display:'block', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.68rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.1rem 2rem', textDecoration:'none', fontWeight:'bold', marginBottom:'1rem' }}>
+          ⬇️ ダウンロード (.dmg / Apple Silicon Mac用)
         </a>
         <p style={{ fontSize:'0.65rem', lineHeight:1.8, color:'rgba(248,246,242,0.3)', marginBottom:'1rem' }}>
-          解凍後、ターミナルで <code>npm install</code> → <code>npm start</code> で起動します(Node.js必須)。
+          ダウンロード後、.dmgを開いてアプリケーションフォルダにドラッグ。初回起動時は「開発元が未確認」の警告が出るので、Finderでアプリを<strong>右クリック→「開く」</strong>を選んでください(2回目以降は通常通り開けます)。
         </p>
         <Link href="/shop" style={{ fontSize:'0.62rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.35)', textDecoration:'none' }}>← ショップに戻る</Link>
       </div>
