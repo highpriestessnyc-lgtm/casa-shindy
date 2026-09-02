@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 export default async function BgmMixStudioDownload() {
   const supabase = await createSupabaseServerClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) redirect('/auth/login')
+  if (!user) redirect('/auth/login?redirect=/shop/bgm-mix-studio/download')
 
   const isAdmin = user.email === 'high.priestess.nyc@gmail.com'
   if (!isAdmin) {
