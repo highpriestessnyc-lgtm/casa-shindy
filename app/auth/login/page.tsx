@@ -1,7 +1,7 @@
 'use client'
 import { useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { createClient } from '@supabase/supabase-js'
+import { getSupabaseBrowser } from '@/lib/supabase'
 
 function LoginForm() {
   const [email, setEmail] = useState('')
@@ -16,15 +16,13 @@ function LoginForm() {
     e.preventDefault()
     setLoading(true)
     setError('')
-    const supabase = createClient(
-      'https://gebjrhwfaoyjgmysplhb.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
-    )
+    const supabase = getSupabaseBrowser()
     const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) { setError(error.message); setLoading(false); return }
     const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
     const destination = redirect || (isAdmin ? '/admin' : '/members')
     router.push(destination)
+    router.refresh()
   }
 
   return (
