@@ -1,7 +1,12 @@
-import { createSupabaseServerClient } from '@/lib/supabase-server'
+export const dynamic = 'force-dynamic'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  'https://gebjrhwfaoyjgmysplhb.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
+)
 
 export default async function FourStancePage() {
-  const supabase = await createSupabaseServerClient()
   const { data: posts } = await supabase.from('posts').select('*').eq('category', 'four_stance').eq('is_published', true).order('created_at', { ascending: false })
   return (
     <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh' }}>
@@ -23,26 +28,20 @@ export default async function FourStancePage() {
             </div>
             <h2 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2', marginBottom:'1.2rem', fontWeight:300 }}>{post.title}</h2>
             {post.image_url && (
-              <div style={{ marginBottom:'1.5rem', borderRadius:2, overflow:'hidden', border:'1px solid rgba(255,255,255,0.07)' }}>
+              <div style={{ marginBottom:'1.5rem', overflow:'hidden', border:'1px solid rgba(255,255,255,0.07)' }}>
                 <img src={post.image_url} alt={post.title} style={{ width:'100%', maxHeight:400, objectFit:'cover', display:'block' }} />
               </div>
             )}
-            <p style={{ fontSize:'0.85rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', whiteSpace:'pre-wrap', marginBottom: post.video_url ? '1.5rem' : 0 }}>{post.content}</p>
+            <p style={{ fontSize:'0.85rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', whiteSpace:'pre-wrap' }}>{post.content}</p>
             {post.video_url && (
-              <div style={{ position:'relative', paddingBottom:'56.25%', height:0, overflow:'hidden', borderRadius:2 }}>
-                <iframe
-                  src={post.video_url.includes('youtube.com/watch') ? post.video_url.replace('watch?v=', 'embed/') : post.video_url}
-                  style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }}
-                  allowFullScreen
-                />
+              <div style={{ position:'relative', paddingBottom:'56.25%', height:0, overflow:'hidden', marginTop:'1.5rem' }}>
+                <iframe src={post.video_url.includes('youtube.com/watch') ? post.video_url.replace('watch?v=', 'embed/') : post.video_url} style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }} allowFullScreen />
               </div>
             )}
           </article>
         ))}
         {!posts?.length && (
-          <div style={{ textAlign:'center', padding:'5rem', color:'rgba(248,246,242,0.2)', fontSize:'0.85rem', border:'1px solid rgba(255,255,255,0.05)' }}>
-            まだ投稿がありません
-          </div>
+          <div style={{ textAlign:'center', padding:'5rem', color:'rgba(248,246,242,0.2)', fontSize:'0.85rem', border:'1px solid rgba(255,255,255,0.05)' }}>まだ投稿がありません</div>
         )}
       </div>
     </div>
