@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic'
 import { createClient } from '@supabase/supabase-js'
+import Comments from '@/app/components/Comments'
 
 const supabase = createClient(
   'https://gebjrhwfaoyjgmysplhb.supabase.co',
@@ -38,6 +39,7 @@ export default async function BooksPage() {
                 <iframe src={post.video_url.includes('youtube.com/watch') ? post.video_url.replace('watch?v=', 'embed/') : post.video_url} style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }} allowFullScreen />
               </div>
             )}
+            <Comments postId={post.id} />
           </article>
         ))}
         {!posts?.length && (
