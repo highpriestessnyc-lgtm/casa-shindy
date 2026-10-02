@@ -41,7 +41,7 @@ export default function JoinPage() {
         <h1 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2.5rem,8vw,4.5rem)', fontWeight:300, color:'#f8f6f2', lineHeight:1, marginBottom:'1rem' }}>
           Casa Shindyに<br/>参加する
         </h1>
-        <div style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'clamp(4rem,14vw,8rem)', color:'#c9a96e', lineHeight:1, margin:'1.5rem 0 0.3rem' }}>¥500</div>
+        <div style={{ fontSize:'1rem', color:'#c9a96e', letterSpacing:'0.3em', margin:'1.5rem 0 0.3rem' }}>¥500 / month</div>
         <span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', display:'block', marginBottom:'3rem' }}>PER MONTH — CANCEL ANYTIME</span>
 
         {/* Feature list */}
