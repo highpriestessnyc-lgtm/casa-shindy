@@ -16,7 +16,7 @@ export default async function LessonPage() {
               {lesson.description && <p style={{ fontSize:'0.85rem', lineHeight:2, color:'rgba(248,246,242,0.6)', marginBottom:'1.5rem' }}>{lesson.description}</p>}
               {lesson.video_url && (
                 <div style={{ position:'relative', paddingBottom:'56.25%', height:0, overflow:'hidden' }}>
-                  <iframe src={lesson.video_url.replace('watch?v=', 'embed/')} style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }} allowFullScreen />
+                  <iframe src={lesson.video_url.includes('youtu.be/') ? lesson.video_url.replace('youtu.be/', 'youtube.com/embed/').split('?')[0] : lesson.video_url.replace('watch?v=', 'embed/').split('&')[0]} style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }} allowFullScreen />
                 </div>
               )}
             </div>
