@@ -12,3 +12,8 @@
   body { overflow-x: hidden; }
   nav { flex-wrap: wrap; gap: 0.5rem; }
 }
+
+:root { --aside-display: flex; }
+@media (max-width: 768px) {
+  :root { --aside-display: none; }
+}
