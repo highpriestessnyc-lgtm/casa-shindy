@@ -54,7 +54,9 @@ export default function LessonPage() {
   const canWatch = (lessonDate: string) => {
     if (isAdmin) return true
     if (!joinedAt) return false
-    return new Date(lessonDate) >= new Date(joinedAt)
+    const l = new Date(lessonDate)
+    const j = new Date(joinedAt)
+    return l.getFullYear() > j.getFullYear() || (l.getFullYear() === j.getFullYear() && l.getMonth() >= j.getMonth())
   }
 
   return (
