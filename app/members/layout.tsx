@@ -69,7 +69,23 @@ export default async function MembersLayout({ children }: { children: React.Reac
           <Link href="/shop" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'rgba(201,169,110,0.5)', textDecoration:'none' }}>Shop →</Link>
         </div>
       </aside>
-      <main style={{ flex:1, overflowY:'auto', minWidth:0 }}>{children}</main>
+      <main style={{ flex:1, overflowY:'auto', minWidth:0 }}>
+        <style>{`
+          .mobile-nav { display: none; }
+          @media (max-width: 768px) { .mobile-nav { display: flex; } }
+        `}</style>
+        <div className="mobile-nav" style={{ background:'#0a0a0a', borderBottom:'1px solid rgba(201,169,110,0.15)', padding:'0.8rem 1.2rem', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
+          <Link href="/members" style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1rem', color:'#c9a96e', textDecoration:'none' }}>Casa Shindy</Link>
+          <div style={{ display:'flex', gap:'1rem' }}>
+            <Link href="/members" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>🏠</Link>
+            <Link href="/members/lesson" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>💃</Link>
+            <Link href="/members/soliloquy" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>✍️</Link>
+            <Link href="/members/market" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>📈</Link>
+            <Link href="/shop" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>🛍</Link>
+          </div>
+        </div>
+        {children}
+      </main>
     </div>
   )
 }
