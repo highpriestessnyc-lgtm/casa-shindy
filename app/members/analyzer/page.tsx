@@ -143,3 +143,37 @@ export default function AnalyzerPage() {
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))', gap:'0.8rem', marginBottom:'1.5rem' }}>
             {[
               ['現在価格', result.currentPrice],
+              ['エントリー', result.entryZone],
+              ['SL', result.slZone],
+              ['TP1', result.tp1],
+              ['TP2', result.tp2],
+              ['TP3', result.tp3],
+              ['RR比', result.riskReward],
+            ].map(([label, value]) => (
+              <div key={label} style={{ background:'rgba(0,0,0,0.3)', padding:'0.8rem', border:'1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ fontSize:'0.55rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.3rem' }}>{label}</div>
+                <div style={{ fontSize:'0.9rem', color:'#f8f6f2', fontFamily:'serif' }}>{value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginBottom:'1rem' }}>
+            <div style={{ fontSize:'0.6rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.5rem' }}>根拠</div>
+            {result.reasons.map((r, i) => (
+              <div key={i} style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.6)', padding:'0.3rem 0', borderBottom:'1px solid rgba(255,255,255,0.04)' }}>· {r}</div>
+            ))}
+          </div>
+
+          {result.warning && (
+            <div style={{ fontSize:'0.8rem', color:'#f39c12', padding:'0.8rem', background:'rgba(243,156,18,0.08)', border:'1px solid rgba(243,156,18,0.2)', marginBottom:'1rem' }}>⚠️ {result.warning}</div>
+          )}
+
+          {/* Casa Shindyに投稿ボタン */}
+          <button onClick={postToCasaShindy} style={{ background:'transparent', color:'#c9a96e', fontSize:'0.72rem', border:'1px solid rgba(201,169,110,0.4)', padding:'0.7rem 1.5rem', cursor:'pointer', letterSpacing:'0.2em' }}>
+            ✍️ 相場配信に投稿する
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
