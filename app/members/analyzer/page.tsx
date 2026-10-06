@@ -89,6 +89,7 @@ export default function AnalyzerPage() {
 
   return (
     <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh', fontFamily:'sans-serif' }}>
+      <a href='/members' style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none', letterSpacing:'0.2em', display:'block', marginBottom:'1rem' }}>← Members</a>
       <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'clamp(1.5rem,3vw,2.5rem)', color:'#f8f6f2', fontWeight:300, marginBottom:'0.3rem' }}>BINGO LADDER ANALYZER PRO</h1>
       <div style={{ width:40, height:2, background:'#c9a96e', marginBottom:'2rem' }}></div>
 
