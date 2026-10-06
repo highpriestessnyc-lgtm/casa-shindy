@@ -37,6 +37,9 @@ function LoginForm() {
             {loading ? '...' : 'Login'}
           </button>
         </form>
+      <div style={{ marginTop:'1.5rem', textAlign:'center' }}>
+          <a href="/auth/reset-password" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.3)', textDecoration:'none', letterSpacing:'0.1em' }}>パスワードをお忘れの方はこちら</a>
+        </div>
       </div>
     </main>
   )
