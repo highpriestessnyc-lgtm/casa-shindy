@@ -169,10 +169,12 @@ export default function AnalyzerPage() {
             <div style={{ fontSize:'0.8rem', color:'#f39c12', padding:'0.8rem', background:'rgba(243,156,18,0.08)', border:'1px solid rgba(243,156,18,0.2)', marginBottom:'1rem' }}>⚠️ {result.warning}</div>
           )}
 
-          {/* Casa Shindyに投稿ボタン */}
+          <div style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
+          <a href="/members" style={{ fontSize:'0.72rem', color:'rgba(248,246,242,0.4)', border:'1px solid rgba(255,255,255,0.07)', padding:'0.7rem 1.5rem', textDecoration:'none', letterSpacing:'0.1em' }}>← Members</a>
           <button onClick={postToCasaShindy} style={{ background:'transparent', color:'#c9a96e', fontSize:'0.72rem', border:'1px solid rgba(201,169,110,0.4)', padding:'0.7rem 1.5rem', cursor:'pointer', letterSpacing:'0.2em' }}>
             ✍️ 相場配信に投稿する
           </button>
+          </div>
         </div>
       )}
     </div>
