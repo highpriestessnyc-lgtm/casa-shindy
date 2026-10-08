@@ -21,6 +21,7 @@ export default async function PostsPage() {
               </div>
               <span style={{ fontSize:'0.6rem', padding:'0.2rem 0.6rem', border:'1px solid rgba(29,184,67,0.4)', color: p.is_published ? '#1db843' : 'gray' }}>{p.is_published ? 'Live' : 'Draft'}</span>
               <a href={`/admin/posts/${p.id}`} style={{ fontSize:'0.62rem', color:'#c9a96e', textDecoration:'none', border:'1px solid rgba(201,169,110,0.3)', padding:'0.3rem 0.7rem' }}>編集</a>
+              <a href={`/members/${p.category === 'four_stance' ? 'culture/four-stance' : p.category === 'movies' ? 'culture/movies' : p.category === 'books' ? 'culture/books' : p.category}`} target='_blank' style={{ fontSize:'0.62rem', color:'rgba(248,246,242,0.4)', textDecoration:'none', border:'1px solid rgba(255,255,255,0.07)', padding:'0.3rem 0.7rem' }}>表示</a>
             </div>
           ))}
         </div>
