@@ -4,11 +4,7 @@ import { createSupabaseServerClient } from '@/lib/supabase-server'
 const PAGES = [
   { href:'/members', label:'ホーム', icon:'✦' },
   { href:'/members/lesson', label:'Dance Lesson', icon:'💃' },
-  { href:'/members/soliloquy', label:'独り言', icon:'✍️' },
-  { href:'/members/market', label:'相場配信', icon:'📈' },
-  { href:'/members/culture/movies', label:'映画', icon:'🎬' },
-  { href:'/members/culture/books', label:'文庫・漫画', icon:'📚' },
-  { href:'/members/culture/four-stance', label:'4スタンス', icon:'🕺' },
+  { href:'/members/columns', label:'コラム', icon:'📝' },
   { href:'/members/painter', label:'MA@PAINTER', icon:'🎨' },
   { href:'/members/dance-history', label:'ダンスの歴史', icon:'📖' },
   { href:'/members/analyzer', label:'ANALYZER PRO', icon:'⚡' },
