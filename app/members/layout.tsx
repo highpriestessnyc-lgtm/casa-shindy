@@ -39,30 +39,30 @@ export default async function MembersLayout({ children }: { children: React.Reac
       }}>
         <div style={{ padding:'1.8rem 1.4rem 1.2rem', borderBottom:'1px solid rgba(201,169,110,0.1)' }}>
           <Link href="/" style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.2rem', color:'#c9a96e', textDecoration:'none', display:'block' }}>Casa Shindy</Link>
-          <div style={{ fontSize:'0.5rem', letterSpacing:'0.4em', color:'rgba(201,169,110,0.4)', marginTop:'0.2rem', textTransform:'uppercase' }}>Members Area</div>
+          <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(201,169,110,0.4)', marginTop:'0.2rem', textTransform:'uppercase' }}>Members Area</div>
         </div>
         <div style={{ padding:'1.2rem 0', borderBottom:'1px solid rgba(201,169,110,0.1)', flex:1 }}>
-          <div style={{ fontSize:'0.48rem', letterSpacing:'0.4em', color:'rgba(201,169,110,0.35)', padding:'0 1.4rem', marginBottom:'0.6rem', textTransform:'uppercase' }}>Navigation</div>
+          <div style={{ fontSize:'0.48rem', letterSpacing:'0.3em', color:'rgba(201,169,110,0.35)', padding:'0 1.4rem', marginBottom:'0.6rem', textTransform:'uppercase' }}>Navigation</div>
           {PAGES.map(n => (
-            <Link key={n.href} href={n.href} style={{ display:'flex', alignItems:'center', gap:'0.6rem', fontSize:'0.72rem', color:'rgba(248,246,242,0.45)', textDecoration:'none', padding:'0.45rem 1.4rem', borderLeft:'2px solid transparent' }}>
+            <Link key={n.href} href={n.href} style={{ display:'flex', alignItems:'center', gap:'0.6rem', fontSize:'0.72rem', color:'rgba(248,246,242,0.6)', textDecoration:'none', padding:'0.45rem 1.4rem', borderLeft:'2px solid transparent' }}>
               <span style={{ fontSize:'0.85rem', opacity:0.8 }}>{n.icon}</span>
               {n.label}
             </Link>
           ))}
         </div>
         <div style={{ padding:'1.2rem 0' }}>
-          <div style={{ fontSize:'0.48rem', letterSpacing:'0.4em', color:'rgba(201,169,110,0.35)', padding:'0 1.4rem', marginBottom:'0.8rem', textTransform:'uppercase' }}>Recent</div>
+          <div style={{ fontSize:'0.48rem', letterSpacing:'0.3em', color:'rgba(201,169,110,0.35)', padding:'0 1.4rem', marginBottom:'0.8rem', textTransform:'uppercase' }}>Recent</div>
           {posts?.map((post: any) => (
             <Link key={post.id} href={categoryHref[post.category] || '/members'} style={{ display:'block', padding:'0.5rem 1.4rem', textDecoration:'none' }}>
-              <div style={{ fontSize:'0.55rem', color:'#c9a96e', opacity:0.6, marginBottom:'0.15rem' }}>
+              <div style={{ fontSize:'0.75rem', color:'#c9a96e', opacity:0.6, marginBottom:'0.15rem' }}>
                 {new Date(post.created_at).toLocaleDateString('ja-JP', { month:'long', day:'numeric' })}
               </div>
-              <div style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.45)', lineHeight:1.4, overflow:'hidden', whiteSpace:'nowrap', textOverflow:'ellipsis' }}>{post.title}</div>
+              <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', lineHeight:1.4, overflow:'hidden', whiteSpace:'nowrap', textOverflow:'ellipsis' }}>{post.title}</div>
             </Link>
           ))}
         </div>
         <div style={{ padding:'1rem 1.4rem', borderTop:'1px solid rgba(201,169,110,0.1)' }}>
-          <Link href="/shop" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'rgba(201,169,110,0.5)', textDecoration:'none' }}>Shop →</Link>
+          <Link href="/shop" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(201,169,110,0.5)', textDecoration:'none' }}>Shop →</Link>
         </div>
       </aside>
       <main style={{ flex:1, overflowY:'auto', minWidth:0 }}>
@@ -73,11 +73,11 @@ export default async function MembersLayout({ children }: { children: React.Reac
         <div className="mobile-nav" style={{ background:'#0a0a0a', borderBottom:'1px solid rgba(201,169,110,0.15)', padding:'0.8rem 1.2rem', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
           <Link href="/members" style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1rem', color:'#c9a96e', textDecoration:'none' }}>Casa Shindy</Link>
           <div style={{ display:'flex', gap:'1rem' }}>
-            <Link href="/members" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>🏠</Link>
-            <Link href="/members/lesson" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>💃</Link>
-            <Link href="/members/soliloquy" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>✍️</Link>
-            <Link href="/members/market" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>📈</Link>
-            <Link href="/shop" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>🛍</Link>
+            <Link href="/members" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>🏠</Link>
+            <Link href="/members/lesson" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>💃</Link>
+            <Link href="/members/soliloquy" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>✍️</Link>
+            <Link href="/members/market" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>📈</Link>
+            <Link href="/shop" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>🛍</Link>
           </div>
         </div>
         {children}

@@ -31,10 +31,10 @@ function renderAppCard(app: any) {
         <span style={{ position:'absolute', top:'1.4rem', left:'2rem', fontFamily:"'Bebas Neue',sans-serif", fontSize:'0.9rem', color:'rgba(201,169,110,0.12)', letterSpacing:'0.1em' }}>{app.num}</span>
         <span style={{ fontSize:'2rem', marginBottom:'1.4rem', display:'block', marginTop:'0.5rem' }}>{app.icon}</span>
         <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.4rem', color: app.featured ? '#c9a96e' : '#f8f6f2', marginBottom:'0.5rem' }}>{app.name}</div>
-        <p style={{ fontSize:'0.73rem', lineHeight:1.9, color:'rgba(248,246,242,0.4)', marginBottom:'1.2rem', flex:1 }}>{app.desc}</p>
+        <p style={{ fontSize:'0.73rem', lineHeight:1.9, color:'rgba(248,246,242,0.6)', marginBottom:'1.2rem', flex:1 }}>{app.desc}</p>
         <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginBottom:'0.2rem' }}>{app.price}</div>
-        <div style={{ fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.3)', marginBottom:'1.2rem' }}>{app.type}</div>
-        <span style={{ fontSize:'0.58rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
+        <div style={{ fontSize:'0.75rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', marginBottom:'1.2rem' }}>{app.type}</div>
+        <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
           {app.price === '無料' ? '無料ダウンロード →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
         </span>
       </div>
@@ -77,10 +77,10 @@ export default function Home() {
         </Link>
         <div style={{ display:'flex', gap:'2rem', alignItems:'center' }}>
           {[['#apps','Apps'],['#culture','Culture'],['#lesson','Lesson'],['#soliloquy','独り言'],['#painter','MA@PAINTER']].map(([href, label]) => (
-            <a key={href} href={href} style={{ fontSize:'0.56rem', letterSpacing:'0.35em', textTransform:'uppercase', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>{label}</a>
+            <a key={href} href={href} style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>{label}</a>
           ))}
-          <Link href="/auth/login" style={{ fontSize:'0.56rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>ログイン</Link>
-          <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.7rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>Members →</Link>
+          <Link href="/auth/login" style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>ログイン</Link>
+          <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.7rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>Members →</Link>
         </div>
       </nav>
 
@@ -90,7 +90,7 @@ export default function Home() {
         <div style={{ position:'absolute', top:0, left:'38%', width:1, height:'100%', background:'linear-gradient(180deg,transparent,rgba(201,169,110,0.07),transparent)', pointerEvents:'none' }} />
 
         <div className="reveal opacity-0 translate-y-5 transition-all duration-700" style={{ position:'relative', zIndex:2, maxWidth:800 }}>
-          <p style={{ fontSize:'0.58rem', letterSpacing:'0.55em', textTransform:'uppercase', color:'#c9a96e', marginBottom:'1.5rem', display:'flex', alignItems:'center', gap:'1rem' }}>
+          <p style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', marginBottom:'1.5rem', display:'flex', alignItems:'center', gap:'1rem' }}>
             <span style={{ display:'inline-block', width:30, height:1, background:'#c9a96e' }} />
             Official Fan Page 2026
           </p>
@@ -98,18 +98,18 @@ export default function Home() {
             <span style={{ display:'block', color:'#f8f6f2' }}>Casa</span>
             <span style={{ display:'block', color:'transparent', WebkitTextStroke:'2px #c9a96e' }}>Shindy</span>
           </h1>
-          <p style={{ fontSize:'0.82rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:480, borderLeft:'2px solid #c9a96e', paddingLeft:'1.2rem', marginBottom:'2.5rem' }}>
+          <p style={{ fontSize:'0.82rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', maxWidth:480, borderLeft:'2px solid #c9a96e', paddingLeft:'1.2rem', marginBottom:'2.5rem' }}>
             ダンス・FX・アプリ・ゲーム・料理・アート・カルチャー。SHINDYのすべてが、ここに集まる。このWORLDへ。
           </p>
           <div style={{ display:'flex', gap:'1rem', alignItems:'center', flexWrap:'wrap' }}>
-            <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', textDecoration:'none' }}>今すぐ参加する</Link>
-            <a href="#apps" style={{ background:'transparent', color:'rgba(248,246,242,0.4)', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>コンテンツを見る</a>
+            <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', textDecoration:'none' }}>今すぐ参加する</Link>
+            <a href="#apps" style={{ background:'transparent', color:'rgba(248,246,242,0.6)', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>コンテンツを見る</a>
 
           </div>
         </div>
 
         <div style={{ position:'absolute', right:'4rem', bottom:'3rem', display:'flex', flexDirection:'column', alignItems:'center', gap:'0.8rem' }}>
-          <span style={{ fontSize:'0.55rem', letterSpacing:'0.4em', textTransform:'uppercase', color:'rgba(248,246,242,0.3)', writingMode:'vertical-rl' }}>Scroll</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', writingMode:'vertical-rl' }}>Scroll</span>
           <div style={{ width:1, height:50, background:'linear-gradient(180deg,#c9a96e,transparent)', animation:'scrollPulse 2s ease infinite' }} />
         </div>
       </section>
@@ -118,8 +118,8 @@ export default function Home() {
       <div style={{ borderTop:'1px solid rgba(255,255,255,0.07)', borderBottom:'1px solid rgba(255,255,255,0.07)', padding:'1rem 0', overflow:'hidden', whiteSpace:'nowrap', background:'#111' }}>
         <div style={{ display:'inline-flex', gap:'3rem', animation:'marquee 28s linear infinite' }}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1rem', color:'rgba(248,246,242,0.3)', display:'flex', alignItems:'center', gap:'3rem' }}>
-              {item} <em style={{ color:'#c9a96e', fontStyle:'normal', fontSize:'0.5rem', letterSpacing:'0.3em' }}>✦</em>
+            <span key={i} style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1rem', color:'rgba(248,246,242,0.6)', display:'flex', alignItems:'center', gap:'3rem' }}>
+              {item} <em style={{ color:'#c9a96e', fontStyle:'normal', fontSize:'0.75rem', letterSpacing:'0.3em' }}>✦</em>
             </span>
           ))}
         </div>
@@ -128,18 +128,18 @@ export default function Home() {
       {/* MEMBERSHIP */}
       <section style={{ padding:'8rem 4rem', background:'#111', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
         <div className="reveal opacity-0 translate-y-5 transition-all duration-700" style={{ maxWidth:960, margin:'0 auto' }}>
-          <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Membership</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Membership</span>
           <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>月額メンバーシップ</h2>
-          <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>すべてのコンテンツにアクセス — いつでも解約可能</span>
+          <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>すべてのコンテンツにアクセス — いつでも解約可能</span>
 
           <div style={{ border:'1px solid rgba(255,255,255,0.07)', display:'grid', gridTemplateColumns:'1fr 1fr', overflow:'hidden' }}>
             {/* Left */}
             <div style={{ padding:'3rem', background:'linear-gradient(135deg,rgba(201,169,110,0.08),transparent)', borderRight:'1px solid rgba(255,255,255,0.07)', position:'relative', overflow:'hidden' }}>
               
               <div style={{ fontSize:'0.8rem', color:'#c9a96e', letterSpacing:'0.3em', marginBottom:'0.5rem' }}>¥500 / month</div>
-              <div style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.35)', marginBottom:'1.5rem' }}>/ month — 月額</div>
-              <p style={{ fontSize:'0.78rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>SHINDYのダンス・FX・カルチャー・アート。会員限定コンテンツが楽しめます。</p>
-              <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none', display:'inline-block' }}>今すぐ参加</Link>
+              <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', marginBottom:'1.5rem' }}>/ month — 月額</div>
+              <p style={{ fontSize:'0.78rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', marginBottom:'2rem' }}>SHINDYのダンス・FX・カルチャー・アート。会員限定コンテンツが楽しめます。</p>
+              <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none', display:'inline-block' }}>今すぐ参加</Link>
             </div>
             {/* Right */}
             <div style={{ padding:'3rem' }}>
@@ -148,9 +148,9 @@ export default function Home() {
                   <span style={{ fontSize:'1.1rem', width:'1.5rem', textAlign:'center', flexShrink:0 }}>{item.icon}</span>
                   <div style={{ flex:1 }}>
                     <div style={{ fontSize:'0.78rem', color:'rgba(248,246,242,0.8)' }}>{item.title}</div>
-                    <div style={{ fontSize:'0.62rem', color:'rgba(248,246,242,0.35)' }}>{item.sub}</div>
+                    <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)' }}>{item.sub}</div>
                   </div>
-                  <span style={{ fontSize:'0.52rem', letterSpacing:'0.2em', padding:'0.2rem 0.5rem', border:'1px solid #c9a96e', color:'#c9a96e', flexShrink:0 }}>{item.badge}</span>
+                  <span style={{ fontSize:'0.75rem', letterSpacing:'0.2em', padding:'0.2rem 0.5rem', border:'1px solid #c9a96e', color:'#c9a96e', flexShrink:0 }}>{item.badge}</span>
                 </div>
               ))}
             </div>
@@ -162,22 +162,22 @@ export default function Home() {
       <section id="apps" style={{ padding:'8rem 4rem' }}>
         <div style={{ maxWidth:960, margin:'0 auto' }}>
           <div className="reveal opacity-0 translate-y-5 transition-all duration-700">
-            <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Products</span>
+            <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Products</span>
             <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>Apps & Tools</h2>
-            <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員登録不要 — 誰でも購入可能</span>
+            <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員登録不要 — 誰でも購入可能</span>
           </div>
 
-          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>会員なら無料</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>会員なら無料</span>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
             {APPS.filter(app => app.member).map(renderAppCard)}
           </div>
 
-          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.5)', display:'block', marginBottom:'1rem' }}>買い切り(完全有料)</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'1rem' }}>買い切り(完全有料)</span>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
             {APPS.filter(app => !app.member && app.price !== '無料').map(renderAppCard)}
           </div>
 
-          <span style={{ fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.5)', display:'block', marginBottom:'1rem' }}>無料</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'1rem' }}>無料</span>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
             {APPS.filter(app => app.price === '無料').map(renderAppCard)}
           </div>
@@ -188,9 +188,9 @@ export default function Home() {
       <section id="culture" style={{ padding:'8rem 4rem', background:'#111', borderTop:'1px solid rgba(255,255,255,0.07)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ maxWidth:960, margin:'0 auto' }}>
           <div className="reveal opacity-0 translate-y-5 transition-all duration-700">
-            <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Culture</span>
+            <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Culture</span>
             <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>SHINDYのカルチャー</h2>
-            <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定</span>
+            <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定</span>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
             {[
@@ -200,10 +200,10 @@ export default function Home() {
             ].map((c, i) => (
               <Link key={i} href={c.href} style={{ textDecoration:'none' }}>
                 <div style={{ background:'#111', padding:'2rem 1.8rem', position:'relative', overflow:'hidden', cursor:'pointer', height:'100%' }}>
-                  <div style={{ position:'absolute', top:'1rem', right:'1rem', fontSize:'0.55rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.2rem 0.5rem' }}>🔒 MEMBERS</div>
+                  <div style={{ position:'absolute', top:'1rem', right:'1rem', fontSize:'0.75rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.2rem 0.5rem' }}>🔒 MEMBERS</div>
                   <span style={{ fontSize:'1.8rem', marginBottom:'1.2rem', display:'block' }}>{c.icon}</span>
                   <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.2rem', color:'#f8f6f2', marginBottom:'0.5rem' }}>{c.name}</div>
-                  <p style={{ fontSize:'0.72rem', lineHeight:1.9, color:'rgba(248,246,242,0.4)' }}>{c.desc}</p>
+                  <p style={{ fontSize:'0.72rem', lineHeight:1.9, color:'rgba(248,246,242,0.6)' }}>{c.desc}</p>
                 </div>
               </Link>
             ))}
@@ -225,11 +225,11 @@ export default function Home() {
             <div style={{ width:40, height:1, background:'#c9a96e', marginBottom:'1.5rem' }} />
             <div style={{ display:'flex', gap:'0.5rem', flexWrap:'wrap', marginBottom:'1.5rem' }}>
               {['月1回以上 更新','会員 限定','動画配信'].map((t, i) => (
-                <span key={i} style={{ fontSize:'0.58rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.3rem 0.7rem', border:`1px solid ${i < 2 ? 'rgba(201,169,110,0.4)' : 'rgba(255,255,255,0.07)'}`, color: i < 2 ? '#c9a96e' : 'rgba(248,246,242,0.35)' }}>{t}</span>
+                <span key={i} style={{ fontSize:'0.75rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.3rem 0.7rem', border:`1px solid ${i < 2 ? 'rgba(201,169,110,0.4)' : 'rgba(255,255,255,0.07)'}`, color: i < 2 ? '#c9a96e' : 'rgba(248,246,242,0.35)' }}>{t}</span>
               ))}
             </div>
-            <p style={{ fontSize:'0.78rem', lineHeight:2.3, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>SHINDYが届けるダンスレクチャー動画。基礎から応用まで、ストリートダンスの本質を丁寧に解説。何度でも見返せる、あなたのペースで学べる。</p>
-            <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', textDecoration:'none', display:'inline-block' }}>メンバーになって見る</Link>
+            <p style={{ fontSize:'0.78rem', lineHeight:2.3, color:'rgba(248,246,242,0.6)', marginBottom:'2rem' }}>SHINDYが届けるダンスレクチャー動画。基礎から応用まで、ストリートダンスの本質を丁寧に解説。何度でも見返せる、あなたのペースで学べる。</p>
+            <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', textDecoration:'none', display:'inline-block' }}>メンバーになって見る</Link>
           </div>
         </div>
       </section>
@@ -238,23 +238,23 @@ export default function Home() {
       <section id="soliloquy" style={{ padding:'8rem 4rem', background:'#111', borderTop:'1px solid rgba(255,255,255,0.07)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ maxWidth:960, margin:'0 auto' }}>
           <div className="reveal opacity-0 translate-y-5 transition-all duration-700">
-            <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Diary</span>
+            <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Diary</span>
             <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>シンディの独り言</h2>
-            <span style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定 — テキスト配信</span>
+            <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員限定 — テキスト配信</span>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'auto 1fr', gap:'4rem', alignItems:'start' }}>
             <div className="reveal opacity-0 translate-y-5 transition-all duration-700" style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'clamp(4rem,10vw,8rem)', color:'transparent', WebkitTextStroke:'1px rgba(201,169,110,0.12)', lineHeight:0.85, writingMode:'vertical-rl', letterSpacing:'0.05em' }}>独り言</div>
             <div className="reveal opacity-0 translate-y-5 transition-all duration-700" style={{ display:'flex', flexDirection:'column', gap:2 }}>
               {SOLILOQUY.map((s, i) => (
                 <div key={i} style={{ background:'#111', border:'1px solid rgba(255,255,255,0.07)', padding:'1.6rem', position:'relative' }}>
-                  <div style={{ position:'absolute', top:'1.4rem', right:'1.4rem', fontSize:'0.52rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.18rem 0.5rem' }}>🔒 MEMBERS</div>
-                  <div style={{ fontSize:'0.56rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.35)', marginBottom:'0.6rem' }}>{s.date}</div>
+                  <div style={{ position:'absolute', top:'1.4rem', right:'1.4rem', fontSize:'0.75rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.18rem 0.5rem' }}>🔒 MEMBERS</div>
+                  <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', marginBottom:'0.6rem' }}>{s.date}</div>
                   <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.05rem', color:'#f8f6f2', marginBottom:'0.4rem' }}>{s.title}</div>
-                  <p style={{ fontSize:'0.73rem', lineHeight:1.8, color:'rgba(248,246,242,0.4)' }}>{s.preview}</p>
+                  <p style={{ fontSize:'0.73rem', lineHeight:1.8, color:'rgba(248,246,242,0.6)' }}>{s.preview}</p>
                 </div>
               ))}
               <div style={{ textAlign:'center', padding:'1.4rem', border:'1px solid rgba(255,255,255,0.07)', borderTop:'none' }}>
-                <Link href="/join" style={{ fontSize:'0.58rem', letterSpacing:'0.35em', textTransform:'uppercase', color:'#c9a96e', textDecoration:'none' }}>会員になってすべて読む →</Link>
+                <Link href="/join" style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', textDecoration:'none' }}>会員になってすべて読む →</Link>
               </div>
             </div>
           </div>
@@ -271,12 +271,12 @@ export default function Home() {
           </div>
           <div className="reveal opacity-0 translate-y-5 transition-all duration-700">
             <div style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'3rem', color:'#c9a96e', letterSpacing:'0.05em', lineHeight:1, marginBottom:'0.3rem' }}>MA@PAINTER</div>
-            <div style={{ fontSize:'0.62rem', letterSpacing:'0.35em', textTransform:'uppercase', color:'rgba(248,246,242,0.35)', marginBottom:'1.5rem' }}>Mahiro — Artist / Painter</div>
+            <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', marginBottom:'1.5rem' }}>Mahiro — Artist / Painter</div>
             <div style={{ width:40, height:1, background:'#c9a96e', marginBottom:'1.5rem' }} />
-            <p style={{ fontSize:'0.78rem', lineHeight:2.3, color:'rgba(248,246,242,0.4)', marginBottom:'2rem' }}>ハワイの光、海、沈黙。MA@PAINTERの作品は、その瞬間を永遠にする。一点ものの原画から限定プリントまで、Casa Shindyだけで出会える。</p>
+            <p style={{ fontSize:'0.78rem', lineHeight:2.3, color:'rgba(248,246,242,0.6)', marginBottom:'2rem' }}>ハワイの光、海、沈黙。MA@PAINTERの作品は、その瞬間を永遠にする。一点ものの原画から限定プリントまで、Casa Shindyだけで出会える。</p>
             <div style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
-              <Link href="/members/painter" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none' }}>絵画の部屋へ 🔒</Link>
-              <a href="https://instagram.com/ma_painter" target="_blank" style={{ background:'transparent', color:'rgba(248,246,242,0.4)', fontSize:'0.65rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 1.5rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>Instagram →</a>
+              <Link href="/members/painter" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none' }}>絵画の部屋へ 🔒</Link>
+              <a href="https://instagram.com/ma_painter" target="_blank" style={{ background:'transparent', color:'rgba(248,246,242,0.6)', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 1.5rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>Instagram →</a>
             </div>
           </div>
         </div>
@@ -286,20 +286,20 @@ export default function Home() {
       <section id="join" style={{ padding:'10rem 4rem', textAlign:'center', position:'relative', overflow:'hidden', borderTop:'1px solid rgba(255,255,255,0.07)' }}>
         <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,169,110,0.05) 0%,transparent 70%)' }} />
         <div className="reveal opacity-0 translate-y-5 transition-all duration-700" style={{ position:'relative', zIndex:1, maxWidth:700, margin:'0 auto' }}>
-          <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>Join</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>Join</span>
           <div style={{ fontFamily:"'Bebas Neue',sans-serif", fontSize:'clamp(4rem,14vw,11rem)', lineHeight:0.85, marginBottom:'1.5rem' }}>
             <span style={{ display:'block', color:'#f8f6f2' }}>Join</span>
             <span style={{ display:'block', color:'transparent', WebkitTextStroke:'2px #c9a96e' }}>Casa</span>
             <span style={{ display:'block', color:'#c9a96e' }}>Shindy</span>
           </div>
-          <p style={{ fontSize:'0.8rem', lineHeight:2.2, color:'rgba(248,246,242,0.4)', maxWidth:440, margin:'0 auto 2rem' }}>SHINDYのダンス・FX・カルチャー・アート。すべてが開く。いつでも解約できます。</p>
-<span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', marginBottom:'2.5rem', display:'block' }}>CANCEL ANYTIME</span>
+          <p style={{ fontSize:'0.8rem', lineHeight:2.2, color:'rgba(248,246,242,0.6)', maxWidth:440, margin:'0 auto 2rem' }}>SHINDYのダンス・FX・カルチャー・アート。すべてが開く。いつでも解約できます。</p>
+<span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', marginBottom:'2.5rem', display:'block' }}>CANCEL ANYTIME</span>
           <div style={{ display:'flex', flexWrap:'wrap', justifyContent:'center', gap:'0.5rem', marginBottom:'2.5rem' }}>
             {['Monthly Lesson','独り言','相場配信','映画・漫画','4スタンス','限定Shop','MA@PAINTER'].map((t) => (
-              <span key={t} style={{ fontSize:'0.56rem', letterSpacing:'0.2em', textTransform:'uppercase', border:'1px solid rgba(255,255,255,0.07)', padding:'0.35rem 0.8rem', color:'rgba(248,246,242,0.35)' }}>{t}</span>
+              <span key={t} style={{ fontSize:'0.75rem', letterSpacing:'0.2em', textTransform:'uppercase', border:'1px solid rgba(255,255,255,0.07)', padding:'0.35rem 0.8rem', color:'rgba(248,246,242,0.6)' }}>{t}</span>
             ))}
           </div>
-          <Link href="/join" style={{ background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.8rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.2rem 4rem', textDecoration:'none', display:'inline-block' }}>メンバーになる</Link>
+          <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.8rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.2rem 4rem', textDecoration:'none', display:'inline-block' }}>メンバーになる</Link>
         </div>
       </section>
 
@@ -309,13 +309,13 @@ export default function Home() {
           <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2' }}>Casa <span style={{ color:'#c9a96e' }}>Shindy</span></div>
           <div style={{ display:'flex', gap:'2rem', flexWrap:'wrap' }}>
             {[['#apps','Apps'],['#culture','Culture'],['#lesson','Lesson'],['#soliloquy','独り言'],['#painter','MA@PAINTER'],['#join','Join']].map(([href, label]) => (
-              <a key={href} href={href} style={{ fontSize:'0.56rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.35)', textDecoration:'none' }}>{label}</a>
+              <a key={href} href={href} style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>{label}</a>
             ))}
           </div>
         </div>
         <div style={{ borderTop:'1px solid rgba(255,255,255,0.07)', paddingTop:'1.5rem', display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:'1rem' }}>
-          <span style={{ fontSize:'0.56rem', letterSpacing:'0.15em', color:'rgba(248,246,242,0.25)' }}>© 2026 Casa Shindy. All rights reserved.</span>
-          <span style={{ fontSize:'0.56rem', letterSpacing:'0.15em', color:'rgba(248,246,242,0.25)' }}>Powered by Stripe — 安全な決済</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.15em', color:'rgba(248,246,242,0.25)' }}>© 2026 Casa Shindy. All rights reserved.</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.15em', color:'rgba(248,246,242,0.25)' }}>Powered by Stripe — 安全な決済</span>
         </div>
       </footer>
 

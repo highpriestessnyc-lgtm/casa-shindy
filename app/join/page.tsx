@@ -33,16 +33,16 @@ export default function JoinPage() {
     <main style={{ minHeight:'100vh', background:'#080808', fontFamily:"'Didact Gothic',sans-serif", padding:'2rem' }}>
       <nav style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'4rem' }}>
         <Link href="/" style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.3rem', color:'#f8f6f2', textDecoration:'none' }}>Casa <span style={{ color:'#c9a96e' }}>Shindy</span></Link>
-        <Link href="/auth/login" style={{ fontSize:'0.6rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>ログイン</Link>
+        <Link href="/auth/login" style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>ログイン</Link>
       </nav>
 
       <div style={{ maxWidth:560, margin:'0 auto', textAlign:'center' }}>
-        <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>Membership</span>
+        <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>Membership</span>
         <h1 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(2.5rem,8vw,4.5rem)', fontWeight:300, color:'#f8f6f2', lineHeight:1, marginBottom:'1rem' }}>
           Casa Shindyに<br/>参加する
         </h1>
         <div style={{ fontSize:'1rem', color:'#c9a96e', letterSpacing:'0.3em', margin:'1.5rem 0 0.3rem' }}>¥500 / month</div>
-        <span style={{ fontSize:'0.62rem', letterSpacing:'0.4em', color:'rgba(248,246,242,0.35)', display:'block', marginBottom:'3rem' }}>PER MONTH — CANCEL ANYTIME</span>
+        <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'3rem' }}>PER MONTH — CANCEL ANYTIME</span>
 
         {/* Feature list */}
         <div style={{ border:'1px solid rgba(255,255,255,0.07)', marginBottom:'2rem', textAlign:'left' }}>
@@ -51,24 +51,24 @@ export default function JoinPage() {
               <span style={{ fontSize:'1.2rem' }}>{f.icon}</span>
               <div>
                 <div style={{ fontSize:'0.82rem', color:'rgba(248,246,242,0.8)' }}>{f.title}</div>
-                <div style={{ fontSize:'0.62rem', color:'rgba(248,246,242,0.35)' }}>{f.sub}</div>
+                <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)' }}>{f.sub}</div>
               </div>
-              <span style={{ marginLeft:'auto', fontSize:'0.5rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.15rem 0.4rem' }}>✓</span>
+              <span style={{ marginLeft:'auto', fontSize:'0.75rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.15rem 0.4rem' }}>✓</span>
             </div>
           ))}
         </div>
 
-        <button onClick={handleJoin} disabled={loading} style={{ width:'100%', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.2rem', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", fontWeight:'bold', marginBottom:'1rem', opacity: loading ? 0.7 : 1 }}>
+        <button onClick={handleJoin} disabled={loading} style={{ width:'100%', background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.2rem', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", fontWeight:'bold', marginBottom:'1rem', opacity: loading ? 0.7 : 1 }}>
           {loading ? '決済ページへ移動中...' : 'Stripeで安全に支払う'}
         </button>
 
-        <p style={{ fontSize:'0.62rem', color:'rgba(248,246,242,0.25)', lineHeight:1.8 }}>
+        <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.25)', lineHeight:1.8 }}>
           クレジットカードで安全に決済。いつでも解約可能。<br/>
           アカウントをお持ちでない方は自動で作成されます。
         </p>
 
         <div style={{ marginTop:'2rem' }}>
-          <Link href="/auth/signup" style={{ fontSize:'0.65rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>先にアカウントを作る →</Link>
+          <Link href="/auth/signup" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>先にアカウントを作る →</Link>
         </div>
       </div>
     </main>

@@ -19,13 +19,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside style={{ width:220, background:'#111', borderRight:'1px solid rgba(255,255,255,0.07)', padding:'2rem 0', flexShrink:0 }}>
         <div style={{ padding:'0 1.5rem 1.5rem', borderBottom:'1px solid rgba(255,255,255,0.07)', marginBottom:'1rem' }}>
           <Link href="/" style={{ fontSize:'1.1rem', color:'#f8f6f2', textDecoration:'none', fontFamily:'serif', fontStyle:'italic' }}>Casa Shindy</Link>
-          <div style={{ fontSize:'0.55rem', color:'rgba(248,246,242,0.3)', marginTop:'0.2rem' }}>ADMIN</div>
+          <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', marginTop:'0.2rem' }}>ADMIN</div>
         </div>
         {NAV.map(n => (
           <Link key={n.href} href={n.href} style={{ display:'block', padding:'0.7rem 1.5rem', fontSize:'0.78rem', textDecoration:'none', color: path===n.href ? '#c9a96e' : 'rgba(248,246,242,0.45)', borderLeft: path===n.href ? '2px solid #c9a96e' : '2px solid transparent' }}>{n.label}</Link>
         ))}
         <div style={{ padding:'1.5rem', marginTop:'2rem', borderTop:'1px solid rgba(255,255,255,0.07)' }}>
-          <Link href="/" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.25)', textDecoration:'none' }}>← サイトへ</Link>
+          <Link href="/" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.25)', textDecoration:'none' }}>← サイトへ</Link>
         </div>
       </aside>
       <main style={{ flex:1, padding:'3rem', overflowY:'auto' }}>{children}</main>

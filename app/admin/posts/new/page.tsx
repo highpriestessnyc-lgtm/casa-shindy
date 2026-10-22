@@ -39,7 +39,7 @@ export default function NewPostPage() {
         </select>
         <input type="text" value={title} onChange={e=>setTitle(e.target.value)} required placeholder="Title" style={inp} />
         <textarea value={content} onChange={e=>setContent(e.target.value)} required placeholder="Content..." rows={16} style={{ ...inp, resize:'vertical' as const }} />
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>画像（URL入力 または ファイルアップロード）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>画像（URL入力 または ファイルアップロード）</label>
         <input type="url" value={imageUrl} onChange={e=>setImageUrl(e.target.value)} placeholder="https://..." style={inp} />
         <input type="file" accept="image/*" onChange={async e => {
           const file = e.target.files?.[0]
@@ -53,7 +53,7 @@ export default function NewPostPage() {
             setImageUrl(pub.publicUrl)
           }
         }} style={{ ...inp, padding:'0.5rem', cursor:'pointer' }} />
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>動画URL（YouTube等・任意）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>動画URL（YouTube等・任意）</label>
         <input type="url" value={videoUrl} onChange={e=>setVideoUrl(e.target.value)} placeholder="https://youtube.com/watch?v=..." style={inp} />
         <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'1.5rem' }}>
           <input type="checkbox" checked={isPublished} onChange={e=>setIsPublished(e.target.checked)} />

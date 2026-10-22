@@ -37,19 +37,19 @@ export default function NewArtworkPage() {
     <div style={{ maxWidth:720 }}>
       <h1 style={{ fontSize:'2rem', color:'#f8f6f2', marginBottom:'2rem' }}>作品を追加</h1>
       <form onSubmit={handleSubmit}>
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>タイトル</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>タイトル</label>
         <input type="text" value={title} onChange={e=>setTitle(e.target.value)} required placeholder="例：Pacific Morning" style={inp} />
         
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>画像URL（インスタ画像URLなど）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>画像URL（インスタ画像URLなど）</label>
         <input type="url" value={imageUrl} onChange={e=>setImageUrl(e.target.value)} placeholder="https://..." style={inp} />
         
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>価格（円）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>価格（円）</label>
         <input type="number" value={price} onChange={e=>setPrice(e.target.value)} required placeholder="48000" style={inp} />
         
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>サイズ</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>サイズ</label>
         <input type="text" value={size} onChange={e=>setSize(e.target.value)} placeholder="例：F6 (410×318mm)" style={inp} />
         
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>説明</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>説明</label>
         <textarea value={description} onChange={e=>setDescription(e.target.value)} rows={4} placeholder="作品について..." style={{ ...inp, resize:'vertical' as const }} />
         
         <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'2rem' }}>

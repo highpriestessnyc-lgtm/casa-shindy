@@ -66,7 +66,7 @@ export default function LessonPage() {
       <div style={{ display:'flex', flexDirection:'column', gap:'2rem' }}>
         {lessons.map((lesson: any) => (
           <article key={lesson.id} style={{ background:'linear-gradient(135deg,#111,#0d0d0d)', border:'1px solid rgba(201,169,110,0.15)', borderLeft:`3px solid ${canWatch(lesson.created_at) ? '#c9a96e' : 'rgba(255,255,255,0.1)'}`, padding:'2rem 2.5rem', boxShadow:'0 4px 24px rgba(0,0,0,0.4)', opacity: canWatch(lesson.created_at) ? 1 : 0.5 }}>
-            <div style={{ fontSize:'0.58rem', letterSpacing:'0.3em', color:'#c9a96e', opacity:0.7, marginBottom:'0.8rem' }}>
+            <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'#c9a96e', opacity:0.7, marginBottom:'0.8rem' }}>
               {new Date(lesson.created_at).toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric' })}
             </div>
             <h2 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2', marginBottom:'1.2rem', fontWeight:300 }}>{lesson.title}</h2>
@@ -76,7 +76,7 @@ export default function LessonPage() {
             ) : (
               <div style={{ background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.07)', padding:'2rem', textAlign:'center' }}>
                 <div style={{ fontSize:'2rem', marginBottom:'0.5rem' }}>🔒</div>
-                <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.1em' }}>
+                <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.1em' }}>
                   {new Date(lesson.created_at).toLocaleDateString('ja-JP', { year:'numeric', month:'long' })}の会員限定レッスンです
                 </div>
               </div>

@@ -68,7 +68,7 @@ export default function EditPostPage() {
     <div style={{ maxWidth:720 }}>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'2rem' }}>
         <h1 style={{ fontSize:'2rem', color:'#f8f6f2' }}>投稿を編集</h1>
-        <button onClick={handleDelete} style={{ background:'rgba(217,64,48,0.15)', color:'#d94030', fontSize:'0.65rem', letterSpacing:'0.2em', padding:'0.6rem 1.2rem', border:'1px solid rgba(217,64,48,0.3)', cursor:'pointer' }}>削除</button>
+        <button onClick={handleDelete} style={{ background:'rgba(217,64,48,0.15)', color:'#d94030', fontSize:'0.75rem', letterSpacing:'0.2em', padding:'0.6rem 1.2rem', border:'1px solid rgba(217,64,48,0.3)', cursor:'pointer' }}>削除</button>
       </div>
       <form onSubmit={handleSave}>
         <select value={category} onChange={e=>setCategory(e.target.value)} style={{ ...inp, cursor:'pointer' }}>
@@ -76,9 +76,9 @@ export default function EditPostPage() {
         </select>
         <input type="text" value={title} onChange={e=>setTitle(e.target.value)} required placeholder="タイトル" style={inp} />
         <textarea value={content} onChange={e=>setContent(e.target.value)} required rows={20} style={{ ...inp, resize:'vertical' as const, lineHeight:1.8 }} />
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>画像URL（任意）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>画像URL（任意）</label>
         <input type="url" value={imageUrl} onChange={e=>setImageUrl(e.target.value)} placeholder="https://..." style={inp} />
-        <label style={{ fontSize:'0.6rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.4)', display:'block', marginBottom:'0.5rem' }}>動画URL（YouTube等・任意）</label>
+        <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>動画URL（YouTube等・任意）</label>
         <input type="url" value={videoUrl} onChange={e=>setVideoUrl(e.target.value)} placeholder="https://youtube.com/watch?v=..." style={inp} />
         <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'1.5rem' }}>
           <input type="checkbox" checked={isPublished} onChange={e=>setIsPublished(e.target.checked)} style={{ width:16, height:16 }} />
@@ -88,7 +88,7 @@ export default function EditPostPage() {
           <button type="submit" disabled={loading} style={{ background:'#c9a96e', color:'#080808', padding:'1rem 2.5rem', border:'none', cursor:'pointer', fontWeight:'bold' }}>
             {loading ? '保存中...' : '保存する'}
           </button>
-          <button type="button" onClick={() => router.back()} style={{ background:'transparent', color:'rgba(248,246,242,0.4)', padding:'1rem 1.5rem', border:'1px solid rgba(255,255,255,0.07)', cursor:'pointer' }}>キャンセル</button>
+          <button type="button" onClick={() => router.back()} style={{ background:'transparent', color:'rgba(248,246,242,0.6)', padding:'1rem 1.5rem', border:'1px solid rgba(255,255,255,0.07)', cursor:'pointer' }}>キャンセル</button>
         </div>
       </form>
     </div>

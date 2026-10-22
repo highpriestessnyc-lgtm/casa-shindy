@@ -33,12 +33,12 @@ function LoginForm() {
         <form onSubmit={handleLogin}>
           <input type="email" value={email} onChange={e=>setEmail(e.target.value)} required placeholder="Email" style={{ width:'100%', background:'#0d0d0d', border:'1px solid rgba(255,255,255,0.1)', color:'#f8f6f2', padding:'0.9rem', fontSize:'0.9rem', outline:'none', display:'block', marginBottom:'1rem' }} />
           <input type="password" value={password} onChange={e=>setPassword(e.target.value)} required placeholder="Password" style={{ width:'100%', background:'#0d0d0d', border:'1px solid rgba(255,255,255,0.1)', color:'#f8f6f2', padding:'0.9rem', fontSize:'0.9rem', outline:'none', display:'block', marginBottom:'1.5rem' }} />
-          <button type="submit" disabled={loading} style={{ width:'100%', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', padding:'1rem', border:'none', cursor:'pointer', fontWeight:'bold', fontSize:'0.9rem' }}>
+          <button type="submit" disabled={loading} style={{ width:'100%', background:'#c9a96e', color:'#080808', padding:'1rem', border:'none', cursor:'pointer', fontWeight:'bold', fontSize:'0.9rem' }}>
             {loading ? '...' : 'Login'}
           </button>
         </form>
       <div style={{ marginTop:'1.5rem', textAlign:'center' }}>
-          <a href="/auth/reset-password" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.3)', textDecoration:'none', letterSpacing:'0.1em' }}>パスワードをお忘れの方はこちら</a>
+          <a href="/auth/reset-password" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none', letterSpacing:'0.1em' }}>パスワードをお忘れの方はこちら</a>
         </div>
       </div>
     </main>

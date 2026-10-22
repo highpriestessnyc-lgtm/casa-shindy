@@ -37,7 +37,7 @@ export default function MembersPage() {
 
   if (status === 'loading') return (
     <main style={{ minHeight:'100vh', background:'#080808', display:'flex', alignItems:'center', justifyContent:'center' }}>
-      <div style={{ color:'rgba(248,246,242,0.4)', fontSize:'0.85rem' }}>読み込み中...</div>
+      <div style={{ color:'rgba(248,246,242,0.6)', fontSize:'0.85rem' }}>読み込み中...</div>
     </main>
   )
 
@@ -56,23 +56,23 @@ export default function MembersPage() {
       <nav style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'1.4rem 2rem', background:'rgba(8,8,8,0.95)', borderBottom:'1px solid rgba(255,255,255,0.07)', position:'sticky', top:0, zIndex:100 }}>
         <Link href="/" style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.3rem', color:'#f8f6f2', textDecoration:'none' }}>Casa <span style={{ color:'#c9a96e' }}>Shindy</span></Link>
         <div style={{ display:'flex', gap:'1.5rem', alignItems:'center' }}>
-          <Link href="/members/account" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>アカウント</Link>
-          <Link href="/shop" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.4)', textDecoration:'none' }}>Shop</Link>
+          <Link href="/members/account" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>アカウント</Link>
+          <Link href="/shop" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>Shop</Link>
         </div>
       </nav>
       <div style={{ padding:'3rem 2rem', maxWidth:960, margin:'0 auto' }}>
         <div style={{ marginBottom:'3rem' }}>
-          <span style={{ fontSize:'0.58rem', letterSpacing:'0.5em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Members Area</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Members Area</span>
           <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2' }}>ようこそ、Casa Shindyへ。</h1>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
           {CONTENTS.map((c, i) => (
             <Link key={i} href={c.href} style={{ textDecoration:'none' }}>
               <div style={{ background:'#111', padding:'2rem', position:'relative', cursor:'pointer', height:'100%' }}>
-                {c.badge && <span style={{ position:'absolute', top:'1rem', right:'1rem', fontSize:'0.52rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.15rem 0.4rem' }}>{c.badge}</span>}
+                {c.badge && <span style={{ position:'absolute', top:'1rem', right:'1rem', fontSize:'0.75rem', letterSpacing:'0.2em', color:'#c9a96e', border:'1px solid rgba(201,169,110,0.3)', padding:'0.15rem 0.4rem' }}>{c.badge}</span>}
                 <span style={{ fontSize:'2rem', display:'block', marginBottom:'1rem' }}>{c.icon}</span>
                 <div style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.15rem', color:'#f8f6f2', marginBottom:'0.3rem' }}>{c.title}</div>
-                <div style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)' }}>{c.sub}</div>
+                <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)' }}>{c.sub}</div>
               </div>
             </Link>
           ))}
@@ -80,9 +80,9 @@ export default function MembersPage() {
         <div style={{ marginTop:'3rem', border:'1px solid rgba(255,255,255,0.07)', padding:'2rem', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'1rem' }}>
           <div>
             <div style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.2rem', color:'#f8f6f2', marginBottom:'0.3rem' }}>Apps and Tools</div>
-            <div style={{ fontSize:'0.7rem', color:'rgba(248,246,242,0.35)' }}>献立・弁当・BINGO LADDER・STAGE3D</div>
+            <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)' }}>献立・弁当・BINGO LADDER・STAGE3D</div>
           </div>
-          <Link href="/shop" style={{ background:'transparent', color:'#c9a96e', fontSize:'0.62rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.8rem 1.5rem', border:'1px solid rgba(201,169,110,0.3)', textDecoration:'none' }}>ショップへ →</Link>
+          <Link href="/shop" style={{ background:'transparent', color:'#c9a96e', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.8rem 1.5rem', border:'1px solid rgba(201,169,110,0.3)', textDecoration:'none' }}>ショップへ →</Link>
         </div>
       </div>
     </main>

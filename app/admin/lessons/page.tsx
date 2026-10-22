@@ -10,13 +10,13 @@ export default async function LessonsPage() {
         <Link href="/admin/lessons/new" style={{ background:'#c9a96e', color:'#080808', padding:'0.8rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>+ New</Link>
       </div>
       {!lessons?.length ? (
-        <div style={{ border:'1px solid rgba(255,255,255,0.07)', padding:'3rem', textAlign:'center', color:'rgba(248,246,242,0.35)' }}>No lessons yet.</div>
+        <div style={{ border:'1px solid rgba(255,255,255,0.07)', padding:'3rem', textAlign:'center', color:'rgba(248,246,242,0.6)' }}>No lessons yet.</div>
       ) : (
         <div style={{ display:'flex', flexDirection:'column', gap:2 }}>
           {lessons.map((l: any) => (
             <div key={l.id} style={{ background:'#111', border:'1px solid rgba(255,255,255,0.07)', padding:'1.2rem 1.5rem', display:'flex', alignItems:'center', gap:'1rem' }}>
               <div style={{ flex:1, fontSize:'0.85rem', color:'#f8f6f2' }}>{l.title}</div>
-              <span style={{ fontSize:'0.6rem', padding:'0.2rem 0.6rem', border:'1px solid rgba(29,184,67,0.4)', color: l.is_published ? '#1db843' : 'gray' }}>{l.is_published ? 'Live' : 'Draft'}</span>
+              <span style={{ fontSize:'0.75rem', padding:'0.2rem 0.6rem', border:'1px solid rgba(29,184,67,0.4)', color: l.is_published ? '#1db843' : 'gray' }}>{l.is_published ? 'Live' : 'Draft'}</span>
             </div>
           ))}
         </div>

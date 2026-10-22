@@ -7,14 +7,14 @@ export default async function PainterPage() {
   return (
     <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem', fontFamily:'sans-serif' }}>
       <div style={{ maxWidth:960, margin:'0 auto' }}>
-        <a href="/members" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none', letterSpacing:'0.2em' }}>← メンバーページへ</a>
+        <a href="/members" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none', letterSpacing:'0.2em' }}>← メンバーページへ</a>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'1rem', margin:'2rem 0 0.5rem' }}>
           <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'3rem', color:'#f8f6f2', fontWeight:300 }}>MA@PAINTER</h1>
-          <a href="https://www.instagram.com/mapain_ter/" target="_blank" style={{ display:'flex', alignItems:'center', gap:'0.5rem', fontSize:'0.7rem', letterSpacing:'0.2em', color:'#c9a96e', textDecoration:'none', border:'1px solid rgba(201,169,110,0.3)', padding:'0.5rem 1rem' }}>
+          <a href="https://www.instagram.com/mapain_ter/" target="_blank" style={{ display:'flex', alignItems:'center', gap:'0.5rem', fontSize:'0.75rem', letterSpacing:'0.2em', color:'#c9a96e', textDecoration:'none', border:'1px solid rgba(201,169,110,0.3)', padding:'0.5rem 1rem' }}>
             📸 @mapain_ter
           </a>
         </div>
-        <p style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.4)', marginBottom:'3rem', letterSpacing:'0.15em' }}>Mahiro — Artist / Painter from Hawaii</p>
+        <p style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.6)', marginBottom:'3rem', letterSpacing:'0.15em' }}>Mahiro — Artist / Painter from Hawaii</p>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:'2rem' }}>
           {artworks?.map((art: any) => (
             <div key={art.id} style={{ position:'relative' }}>
@@ -34,21 +34,21 @@ export default async function PainterPage() {
               </div>
               <div style={{ marginTop:'1.2rem', textAlign:'center' }}>
                 <h3 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.1rem', color:'#f8f6f2', marginBottom:'0.4rem', fontWeight:300 }}>{art.title}</h3>
-                {art.size && <p style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.4rem' }}>{art.size}</p>}
-                {art.description && <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.5)', lineHeight:1.7, marginBottom:'0.8rem' }}>{art.description}</p>}
+                {art.size && <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.2em', marginBottom:'0.4rem' }}>{art.size}</p>}
+                {art.description && <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', lineHeight:1.7, marginBottom:'0.8rem' }}>{art.description}</p>}
                 <div style={{ display:'flex', justifyContent:'center', alignItems:'center', gap:'1rem' }}>
                   <span style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.3rem', color: art.is_sold ? 'rgba(248,246,242,0.3)' : '#c9a96e' }}>
                     {art.is_sold ? '———' : art.price ? `¥${art.price.toLocaleString()}` : ''}
                   </span>
                   {!art.is_sold && (
-                    <a href="https://www.instagram.com/mapain_ter/" target="_blank" style={{ fontSize:'0.6rem', letterSpacing:'0.2em', color:'#080808', background:'#c9a96e', padding:'0.4rem 1rem', textDecoration:'none', fontWeight:'bold' }}>購入希望 →</a>
+                    <a href="https://www.instagram.com/mapain_ter/" target="_blank" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'#080808', background:'#c9a96e', padding:'0.4rem 1rem', textDecoration:'none', fontWeight:'bold' }}>購入希望 →</a>
                   )}
                 </div>
               </div>
             </div>
           ))}
           {!artworks?.length && (
-            <div style={{ textAlign:'center', padding:'4rem', color:'rgba(248,246,242,0.3)', fontSize:'0.85rem', gridColumn:'1/-1' }}>まだ作品がありません</div>
+            <div style={{ textAlign:'center', padding:'4rem', color:'rgba(248,246,242,0.6)', fontSize:'0.85rem', gridColumn:'1/-1' }}>まだ作品がありません</div>
           )}
         </div>
       </div>

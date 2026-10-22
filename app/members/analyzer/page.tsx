@@ -89,7 +89,7 @@ export default function AnalyzerPage() {
 
   return (
     <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh', fontFamily:'sans-serif' }}>
-      <a href='/members' style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none', letterSpacing:'0.2em', display:'block', marginBottom:'1rem' }}>← Members</a>
+      <a href='/members' style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none', letterSpacing:'0.2em', display:'block', marginBottom:'1rem' }}>← Members</a>
       <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'clamp(1.5rem,3vw,2.5rem)', color:'#f8f6f2', fontWeight:300, marginBottom:'0.3rem' }}>BINGO LADDER ANALYZER PRO</h1>
       <div style={{ width:40, height:2, background:'#c9a96e', marginBottom:'2rem' }}></div>
 
@@ -106,21 +106,21 @@ export default function AnalyzerPage() {
         ) : (
           <div>
             <div style={{ fontSize:'2rem', marginBottom:'0.5rem' }}>📊</div>
-            <div style={{ fontSize:'0.85rem', color:'rgba(248,246,242,0.4)' }}>チャートをドロップ またはタップして選択</div>
+            <div style={{ fontSize:'0.85rem', color:'rgba(248,246,242,0.6)' }}>チャートをドロップ またはタップして選択</div>
           </div>
         )}
         <input ref={fileRef} type="file" accept="image/*" style={{ display:'none' }} onChange={e => e.target.files?.[0] && processFile(e.target.files[0])} />
       </div>
 
       {/* カメラ撮影 */}
-      <button onClick={() => cameraRef.current?.click()} style={{ background:'transparent', color:'rgba(248,246,242,0.4)', fontSize:'0.72rem', border:'1px solid rgba(255,255,255,0.07)', padding:'0.6rem 1.2rem', cursor:'pointer', marginBottom:'1.5rem' }}>
+      <button onClick={() => cameraRef.current?.click()} style={{ background:'transparent', color:'rgba(248,246,242,0.6)', fontSize:'0.72rem', border:'1px solid rgba(255,255,255,0.07)', padding:'0.6rem 1.2rem', cursor:'pointer', marginBottom:'1.5rem' }}>
         📷 カメラで撮影
       </button>
       <input ref={cameraRef} type="file" accept="image/*" capture="environment" style={{ display:'none' }} onChange={e => e.target.files?.[0] && processFile(e.target.files[0])} />
 
       {/* 解析ボタン */}
       {imageBase64 && (
-        <button onClick={analyze} disabled={loading} style={{ display:'block', width:'100%', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', padding:'1rem', border:'none', cursor:'pointer', fontWeight:'bold', fontSize:'0.9rem', marginBottom:'2rem', opacity: loading ? 0.7 : 1 }}>
+        <button onClick={analyze} disabled={loading} style={{ display:'block', width:'100%', background:'#c9a96e', color:'#080808', padding:'1rem', border:'none', cursor:'pointer', fontWeight:'bold', fontSize:'0.9rem', marginBottom:'2rem', opacity: loading ? 0.7 : 1 }}>
           {loading ? '解析中...' : '⚡ 解析する'}
         </button>
       )}
@@ -133,10 +133,10 @@ export default function AnalyzerPage() {
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:'1.5rem', flexWrap:'wrap', gap:'1rem' }}>
             <div>
               <div style={{ fontSize:'2.5rem', fontWeight:'bold', color: cfg.color, fontFamily:'serif' }}>{cfg.label}</div>
-              <div style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.5)', marginTop:'0.3rem' }}>STAGE {result.stage} · POWER {result.stagePower}/10 · 確信度 {result.confidence}%</div>
+              <div style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.6)', marginTop:'0.3rem' }}>STAGE {result.stage} · POWER {result.stagePower}/10 · 確信度 {result.confidence}%</div>
             </div>
             <div style={{ textAlign:'right' }}>
-              <div style={{ fontSize:'0.6rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.3rem' }}>TREND</div>
+              <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.2em', marginBottom:'0.3rem' }}>TREND</div>
               <div style={{ fontSize:'1rem', color:'#f8f6f2' }}>{result.trend}</div>
             </div>
           </div>
@@ -152,14 +152,14 @@ export default function AnalyzerPage() {
               ['RR比', result.riskReward],
             ].map(([label, value]) => (
               <div key={label} style={{ background:'rgba(0,0,0,0.3)', padding:'0.8rem', border:'1px solid rgba(255,255,255,0.05)' }}>
-                <div style={{ fontSize:'0.55rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.3rem' }}>{label}</div>
+                <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.2em', marginBottom:'0.3rem' }}>{label}</div>
                 <div style={{ fontSize:'0.9rem', color:'#f8f6f2', fontFamily:'serif' }}>{value}</div>
               </div>
             ))}
           </div>
 
           <div style={{ marginBottom:'1rem' }}>
-            <div style={{ fontSize:'0.6rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.2em', marginBottom:'0.5rem' }}>根拠</div>
+            <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.2em', marginBottom:'0.5rem' }}>根拠</div>
             {result.reasons.map((r, i) => (
               <div key={i} style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.6)', padding:'0.3rem 0', borderBottom:'1px solid rgba(255,255,255,0.04)' }}>· {r}</div>
             ))}
@@ -170,7 +170,7 @@ export default function AnalyzerPage() {
           )}
 
           <div style={{ display:'flex', gap:'1rem', flexWrap:'wrap' }}>
-          <a href="/members" style={{ fontSize:'0.72rem', color:'rgba(248,246,242,0.4)', border:'1px solid rgba(255,255,255,0.07)', padding:'0.7rem 1.5rem', textDecoration:'none', letterSpacing:'0.1em' }}>← Members</a>
+          <a href="/members" style={{ fontSize:'0.72rem', color:'rgba(248,246,242,0.6)', border:'1px solid rgba(255,255,255,0.07)', padding:'0.7rem 1.5rem', textDecoration:'none', letterSpacing:'0.1em' }}>← Members</a>
           <button onClick={postToCasaShindy} style={{ background:'transparent', color:'#c9a96e', fontSize:'0.72rem', border:'1px solid rgba(201,169,110,0.4)', padding:'0.7rem 1.5rem', cursor:'pointer', letterSpacing:'0.2em' }}>
             ✍️ 相場配信に投稿する
           </button>

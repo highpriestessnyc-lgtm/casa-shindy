@@ -38,7 +38,7 @@ export default function Comments({ postId }: { postId: string }) {
 
   return (
     <div style={{ marginTop:'2rem', borderTop:'1px solid rgba(255,255,255,0.07)', paddingTop:'1.5rem' }}>
-      <div style={{ fontSize:'0.55rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.3)', marginBottom:'1.5rem', textTransform:'uppercase' }}>
+      <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', marginBottom:'1.5rem', textTransform:'uppercase' }}>
         Comments {comments.length > 0 && `(${comments.length})`}
       </div>
 
@@ -47,19 +47,19 @@ export default function Comments({ postId }: { postId: string }) {
         <div key={c.id} style={{ borderLeft:'2px solid rgba(255,255,255,0.07)', paddingLeft:'1rem', marginBottom:'1.2rem' }}>
           <div style={{ display:'flex', gap:'0.8rem', alignItems:'baseline', marginBottom:'0.3rem' }}>
             <span style={{ fontSize:'0.78rem', color:'#f8f6f2', fontWeight:'bold' }}>{c.name}</span>
-            <span style={{ fontSize:'0.58rem', color:'rgba(248,246,242,0.25)' }}>{new Date(c.created_at).toLocaleDateString('ja-JP')}</span>
+            <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.25)' }}>{new Date(c.created_at).toLocaleDateString('ja-JP')}</span>
           </div>
-          <p style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.55)', lineHeight:1.8 }}>{c.content}</p>
+          <p style={{ fontSize:'0.8rem', color:'rgba(248,246,242,0.6)', lineHeight:1.8 }}>{c.content}</p>
         </div>
       ))}
 
       {/* コメントフォーム */}
       <form onSubmit={handleSubmit} style={{ marginTop:'1.5rem', background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.05)', padding:'1.2rem' }}>
-        <div style={{ fontSize:'0.55rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.3)', marginBottom:'1rem', textTransform:'uppercase' }}>Leave a Comment</div>
+        <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:'rgba(248,246,242,0.6)', marginBottom:'1rem', textTransform:'uppercase' }}>Leave a Comment</div>
         <input type="text" value={name} onChange={e=>setName(e.target.value)} placeholder="お名前" required style={inp} />
         <textarea value={content} onChange={e=>setContent(e.target.value)} placeholder="コメントを書く..." required rows={3} style={{ ...inp, resize:'vertical' as const }} />
         {sent && <div style={{ fontSize:'0.72rem', color:'#1db843', marginBottom:'0.8rem' }}>コメントを送信しました！</div>}
-        <button type="submit" disabled={loading} style={{ background:'transparent', color:'rgba(248,246,242,0.4)', fontSize:'0.62rem', letterSpacing:'0.2em', padding:'0.6rem 1.2rem', border:'1px solid rgba(255,255,255,0.07)', cursor:'pointer' }}>
+        <button type="submit" disabled={loading} style={{ background:'transparent', color:'rgba(248,246,242,0.6)', fontSize:'0.75rem', letterSpacing:'0.2em', padding:'0.6rem 1.2rem', border:'1px solid rgba(255,255,255,0.07)', cursor:'pointer' }}>
           {loading ? '...' : 'Send'}
         </button>
       </form>

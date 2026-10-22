@@ -70,7 +70,7 @@ export default function ColumnsPage() {
               boxShadow:'0 4px 24px rgba(0,0,0,0.4)',
             }}>
               <div style={{ position:'absolute', top:0, left:0, right:0, height:1, background:`linear-gradient(90deg,${tab.accent},transparent)` }} />
-              <div style={{ fontSize:'0.58rem', letterSpacing:'0.3em', color:tab.accent, opacity:0.7, marginBottom:'0.8rem' }}>
+              <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', color:tab.accent, opacity:0.7, marginBottom:'0.8rem' }}>
                 {new Date(post.created_at).toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric' })}
               </div>
               <h2 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2', marginBottom:'1.2rem', fontWeight:300 }}>{post.title}</h2>

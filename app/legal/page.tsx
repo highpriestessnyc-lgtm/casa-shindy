@@ -2,7 +2,7 @@ export default function LegalPage() {
   return (
     <main style={{ minHeight:'100vh', background:'#080808', padding:'4rem 2rem', fontFamily:'sans-serif' }}>
       <div style={{ maxWidth:720, margin:'0 auto' }}>
-        <a href="/" style={{ fontSize:'0.65rem', color:'rgba(248,246,242,0.4)', textDecoration:'none', letterSpacing:'0.2em' }}>← トップへ</a>
+        <a href="/" style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', textDecoration:'none', letterSpacing:'0.2em' }}>← トップへ</a>
         <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'2.5rem', color:'#f8f6f2', margin:'2rem 0', fontWeight:300 }}>特定商取引法に基づく表記</h1>
         
         {[
@@ -18,7 +18,7 @@ export default function LegalPage() {
           { label:'動作環境', value:'インターネット接続環境が必要です。推奨ブラウザ：Chrome、Safari最新版' },
         ].map((item) => (
           <div key={item.label} style={{ display:'grid', gridTemplateColumns:'180px 1fr', gap:'1rem', padding:'1.2rem 0', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
-            <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.4)', letterSpacing:'0.1em' }}>{item.label}</div>
+            <div style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.1em' }}>{item.label}</div>
             <div style={{ fontSize:'0.85rem', color:'rgba(248,246,242,0.8)', lineHeight:1.8 }}>{item.value}</div>
           </div>
         ))}
