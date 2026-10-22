@@ -20,13 +20,11 @@ export default function JoinPage() {
     window.location.href = url
   }
 
+  // 月額¥500で開くもの。コラムやカルチャーは無料登録で読めるので、ここには載せない
   const FEATURES = [
     { icon:'💃', title:'Monthly Dance Lesson', sub:'月1回以上 動画レクチャー更新' },
-    { icon:'✍️', title:'シンディの独り言', sub:'日常・思考・旅のテキスト配信' },
-    { icon:'📈', title:'相場配信', sub:'GOLD / FX SHINDYの視点' },
-    { icon:'🎬', title:'映画・文庫・漫画紹介', sub:'SHINDYの人格を作った作品たち' },
-    { icon:'🕺', title:'4スタンス別ダンス談義', sub:'体軸タイプ別ダンス理論' },
-    { icon:'🎨', title:'MA@PAINTER 絵画の部屋', sub:'まひろ作品 優先購入権' },
+    { icon:'📈', title:'BINGO ANALYZER PRO', sub:'チャート画像からBINGO LADDERでAI分析' },
+    { icon:'🎚️', title:'BGM MIX STUDIO', sub:'ダンス公演用BGM編集ソフト(Mac)' },
   ]
 
   return (

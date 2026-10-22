@@ -1,12 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { createClient } from '@supabase/supabase-js'
+import { getSupabaseBrowser } from '@/lib/supabase'
 
-const supabase = createClient(
-  'https://gebjrhwfaoyjgmysplhb.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
-)
+// ログイン状態はCookieに入っているので、Cookieを読めるブラウザ用クライアントを使う
+const supabase = getSupabaseBrowser()
 
 const CONTENTS = [
   { icon:'💃', title:'Monthly Dance Lesson', sub:'月1回以上更新', href:'/members/lesson', badge:'Monthly' },
@@ -17,6 +15,8 @@ const CONTENTS = [
   { icon:'🕺', title:'4スタンス談義', sub:'体軸別ダンス理論', href:'/members/culture/four-stance', badge:'' },
   { icon:'🎨', title:'MA@PAINTER', sub:'まひろの絵画', href:'/members/painter', badge:'' },
   { icon:'📖', title:'ダンスの歴史大百科', sub:'ストリートダンスの全記録', href:'/members/dance-history', badge:'' },
+  { icon:'🥁', title:'アフリカン リズム図鑑', sub:'ジャンベ・ドゥンドゥンの伝統リズム', href:'/access/african-rhythm', badge:'' },
+  { icon:'⚡', title:'BINGO ANALYZER PRO', sub:'チャートをAIで分析', href:'/members/analyzer', badge:'' },
 ]
 
 export default function MembersPage() {

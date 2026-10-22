@@ -1,6 +1,10 @@
 import { createSupabaseServerClient } from '@/lib/supabase-server'
+import { getAccess } from '@/lib/access'
+import { SignupGate } from '@/app/components/AccessGate'
 
 export default async function PainterPage() {
+  const { user } = await getAccess()
+  if (!user) return <SignupGate next="/members/painter" what="絵画の部屋" />
   const supabase = await createSupabaseServerClient()
   const { data: artworks } = await supabase.from('artworks').select('*').eq('is_published', true).order('created_at', { ascending: false })
 

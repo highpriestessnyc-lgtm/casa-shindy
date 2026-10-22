@@ -1,12 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
+import { getSupabaseBrowser } from '@/lib/supabase'
 import Comments from '@/app/components/Comments'
+import Link from 'next/link'
 
-const supabase = createClient(
-  'https://gebjrhwfaoyjgmysplhb.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
-)
+// ログイン状態はCookieに入っているので、Cookieを読めるブラウザ用クライアントを使う
+const supabase = getSupabaseBrowser()
 
 const TABS = [
   { key:'soliloquy', label:'独り言', icon:'✍️', accent:'#c9a96e', bg:'rgba(201,169,110,0.12)' },
@@ -20,6 +19,11 @@ export default function ColumnsPage() {
   const [activeTab, setActiveTab] = useState('soliloquy')
   const [posts, setPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
+  const [authed, setAuthed] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => setAuthed(!!user))
+  }, [])
 
   useEffect(() => {
     setLoading(true)
@@ -30,6 +34,20 @@ export default function ColumnsPage() {
   }, [activeTab])
 
   const tab = TABS.find(t => t.key === activeTab)!
+
+  if (authed === null) return <div style={{ minHeight:'70vh', background:'#080808' }} />
+
+  if (authed === false) return (
+    <div style={{ minHeight:'70vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'3rem 1.5rem', background:'#080808' }}>
+      <div style={{ maxWidth:460, width:'100%', textAlign:'center', border:'1px solid rgba(255,255,255,0.07)', background:'#111', padding:'3rem 2rem' }}>
+        <div style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', marginBottom:'1rem' }}>Free</div>
+        <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.6rem', fontWeight:300, color:'#f8f6f2', marginBottom:'0.8rem' }}>コラムは無料登録で読めます</h2>
+        <p style={{ fontSize:'0.82rem', lineHeight:2, color:'rgba(248,246,242,0.7)', marginBottom:'2rem' }}>メールアドレスだけで登録できます。<br />コラム・カルチャー・アフリカン リズム図鑑などが全部ひらきます。</p>
+        <Link href="/auth/signup?redirect=%2Fmembers%2Fcolumns" style={{ display:'block', background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', textDecoration:'none', fontWeight:'bold', marginBottom:'1rem' }}>無料で登録する</Link>
+        <Link href="/auth/login?redirect=%2Fmembers%2Fcolumns" style={{ display:'block', border:'1px solid rgba(255,255,255,0.07)', color:'rgba(248,246,242,0.6)', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', textDecoration:'none' }}>ログイン</Link>
+      </div>
+    </div>
+  )
 
   return (
     <div style={{ padding:'2rem 3rem', background:'#080808', minHeight:'100vh', fontFamily:'sans-serif' }}>

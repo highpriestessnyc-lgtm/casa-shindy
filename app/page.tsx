@@ -9,16 +9,17 @@ const MARQUEE_ITEMS = [
 ]
 
 const APPS = [
-  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。会員は無料。', price:'¥490', type:'会員無料', href:'/access/kondate', member:true },
+  { num:'01', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。栄養バランス・家族の好みから最適メニューを生成。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/kondate', member:true, tier:'free' },
   { num:'02', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理・栄養計算・見た目コーディネート。毎朝をもっと楽しく。会員は無料。', price:'¥490', type:'会員無料', href:'/shop', member:true },
   { num:'03', icon:'📊', name:'BINGO LADDER', desc:'SHINDYのFXステージ分析メソッド。Stage 0〜5の相場読みを体系化した実戦ツール。', price:'¥9,800', type:'FX Trading Method', href:'/shop', member:false, featured:true },
   { num:'04', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。直感的インターフェースで相場の構造が見える。', price:'¥5,900', type:'Buy Once', href:'/shop', member:false },
-  { num:'05', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。日本のダンスシーンの記録と記憶。会員は無料。', price:'¥450', type:'会員無料', href:'/members/dance-history', member:true },
+  { num:'05', icon:'📖', name:'ダンスの歴史本', desc:'SHINDYが書いたストリートダンスの歴史書。日本のダンスシーンの記録と記憶。無料登録で読める。', price:'無料登録', type:'Free Account', href:'/members/dance-history', member:true, tier:'free' },
   { num:'06', icon:'🎮', name:'Dancing Quest', desc:'SHINDYが作ったダンサー育成ゲーム。Casa Shindyで無料ダウンロード。', price:'無料', type:'Casa Shindy限定DL', href:'/shop/dancing-quest/download', member:false },
   { num:'07', icon:'📈', name:'BINGO ANALYZER PRO', desc:'BINGO LADDERのチャート分析AIツール。会員は無料。', price:'¥3,500', type:'会員無料', href:'/access/bingo-analyzer', member:true },
-  { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。会員は無料。', price:'¥490', type:'会員無料', href:'/access/word-street', member:true },
-  { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。会員は無料。', price:'¥490', type:'会員無料', href:'/access/cosmic-calendar', member:true },
-  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。会員は無料。', price:'¥490', type:'会員無料', href:'/access/kokushi', member:true },
+  { num:'08', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語アプリ。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/word-street', member:true, tier:'free' },
+  { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/cosmic-calendar', member:true, tier:'free' },
+  { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/kokushi', member:true, tier:'free' },
+  { num:'12', icon:'🥁', name:'アフリカン リズム図鑑', desc:'ジャンベ・ドゥンドゥンなど、アフリカンダンスの伝統リズムを地方別に整理した図鑑。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/african-rhythm', member:true, tier:'free' },
   { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
 ]
 
@@ -35,7 +36,7 @@ function renderAppCard(app: any) {
         <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#c9a96e', marginBottom:'0.2rem' }}>{app.price}</div>
         <div style={{ fontSize:'0.75rem', letterSpacing:'0.25em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', marginBottom:'1.2rem' }}>{app.type}</div>
         <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', borderBottom:'1px solid rgba(201,169,110,0.3)', paddingBottom:'0.15rem', alignSelf:'flex-start' }}>
-          {app.price === '無料' ? '無料ダウンロード →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
+          {app.price === '無料' ? '無料ダウンロード →' : app.tier === 'free' ? '無料登録で使う →' : app.price === '会員限定' ? '会員ページへ →' : '購入する →'}
         </span>
       </div>
     </a>
@@ -125,9 +126,14 @@ export default function Home() {
             <span style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', letterSpacing:'0.15em', display:'block', marginBottom:'3rem' }}>会員登録不要 — 誰でも購入可能</span>
           </div>
 
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>無料登録で使える</span>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
+            {APPS.filter(app => app.tier === 'free').map(renderAppCard)}
+          </div>
+
           <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'1rem' }}>会員なら無料</span>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)', marginBottom:'3.5rem' }}>
-            {APPS.filter(app => app.member).map(renderAppCard)}
+            {APPS.filter(app => app.member && app.tier !== 'free').map(renderAppCard)}
           </div>
 
           <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'1rem' }}>買い切り(完全有料)</span>

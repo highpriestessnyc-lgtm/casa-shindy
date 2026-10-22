@@ -1,12 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { createClient } from '@supabase/supabase-js'
+import { getSupabaseBrowser } from '@/lib/supabase'
 
-const supabase = createClient(
-  'https://gebjrhwfaoyjgmysplhb.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdlYmpyaHdmYW95amdteXNwbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyOTM0MjAsImV4cCI6MjA5NTg2OTQyMH0.uvRUg94EYo5bKCFJFLjf_bEqA4607gToTDje4HjgauA'
-)
+// ログイン状態はCookieに入っているので、Cookieを読めるブラウザ用クライアントを使う
+const supabase = getSupabaseBrowser()
 
 function LazyVideo({ url }: { url: string }) {
   const [started, setStarted] = useState(false)

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getAccess } from '@/lib/access'
 
 const SYSTEM_PROMPT = `あなたはBINGO LADDER PRO v2.0のトレード解析AIです。XAUUSDのTradingViewチャートスクリーンショットを見て、以下のBINGO LADDERロジックに従い分析します。
 
@@ -43,6 +44,11 @@ STAGE判定:
 }`
 
 export async function POST(req: NextRequest) {
+  // 会員(¥500/月)限定。画面側の判定だけでは直接APIを叩かれるので、ここでも必ずチェックする
+  const { user, isMember } = await getAccess()
+  if (!user) return NextResponse.json({ error: 'ログインが必要です' }, { status: 401 })
+  if (!isMember) return NextResponse.json({ error: '会員限定の機能です' }, { status: 403 })
+
   try {
     const { imageBase64, mediaType } = await req.json()
     if (!imageBase64) return NextResponse.json({ error: '画像データなし' }, { status: 400 })

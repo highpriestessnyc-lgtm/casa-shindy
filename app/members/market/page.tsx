@@ -1,6 +1,8 @@
 export const dynamic = 'force-dynamic'
 import { createClient } from '@supabase/supabase-js'
 import Comments from '@/app/components/Comments'
+import { getAccess } from '@/lib/access'
+import { SignupGate } from '@/app/components/AccessGate'
 
 const supabase = createClient(
   'https://gebjrhwfaoyjgmysplhb.supabase.co',
@@ -8,6 +10,8 @@ const supabase = createClient(
 )
 
 export default async function MarketPage() {
+  const { user } = await getAccess()
+  if (!user) return <SignupGate next="/members/market" what="相場配信" />
   const { data: posts } = await supabase.from('posts').select('*').eq('category', 'market').eq('is_published', true).order('created_at', { ascending: false })
   return (
     <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh' }}>

@@ -1,6 +1,8 @@
 export const dynamic = 'force-dynamic'
 import { createClient } from '@supabase/supabase-js'
 import Comments from '@/app/components/Comments'
+import { getAccess } from '@/lib/access'
+import { SignupGate } from '@/app/components/AccessGate'
 
 const supabase = createClient(
   'https://gebjrhwfaoyjgmysplhb.supabase.co',
@@ -8,6 +10,8 @@ const supabase = createClient(
 )
 
 export default async function BooksPage() {
+  const { user } = await getAccess()
+  if (!user) return <SignupGate next="/members/culture/books" what="この記事" />
   const { data: posts } = await supabase.from('posts').select('*').eq('category', 'books').eq('is_published', true).order('created_at', { ascending: false })
   return (
     <div style={{ padding:'3rem', background:'#080808', minHeight:'100vh' }}>
