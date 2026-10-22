@@ -29,7 +29,7 @@ export default function SignupPage() {
         <div style={{ fontSize:'2rem', marginBottom:'1rem' }}>✉️</div>
         <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#f8f6f2', marginBottom:'1rem', fontWeight:300 }}>確認メールを送信しました</h2>
         <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', lineHeight:1.8, marginBottom:'2rem' }}>{email} に確認メールを送りました。リンクをクリックして登録を完了してください。</p>
-        <Link href="/join" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none', display:'inline-block' }}>メンバー登録へ ¥500/月</Link>
+        <Link href="/members" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', textDecoration:'none', display:'inline-block' }}>コンテンツを見る →</Link>
       </div>
     </main>
   )

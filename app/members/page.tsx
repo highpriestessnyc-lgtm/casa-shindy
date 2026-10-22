@@ -41,28 +41,22 @@ export default function MembersPage() {
     </main>
   )
 
-  if (status === 'nologin') {
-    if (typeof window !== 'undefined') window.location.href = '/auth/login'
-    return null
-  }
-
-  if (status === 'notmember') {
-    if (typeof window !== 'undefined') window.location.href = '/join'
-    return null
-  }
-
   return (
     <main style={{ minHeight:'100vh', background:'#080808', fontFamily:'sans-serif' }}>
       <nav style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'1.4rem 2rem', background:'rgba(8,8,8,0.95)', borderBottom:'1px solid rgba(255,255,255,0.07)', position:'sticky', top:0, zIndex:100 }}>
         <Link href="/" style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'1.3rem', color:'#f8f6f2', textDecoration:'none' }}>Casa <span style={{ color:'#c9a96e' }}>Shindy</span></Link>
         <div style={{ display:'flex', gap:'1.5rem', alignItems:'center' }}>
-          <Link href="/members/account" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>アカウント</Link>
+          {status === 'nologin' ? (
+            <Link href="/auth/login?redirect=/members" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>ログイン</Link>
+          ) : (
+            <Link href="/members/account" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>アカウント</Link>
+          )}
           <Link href="/shop" style={{ fontSize:'0.75rem', letterSpacing:'0.2em', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>Shop</Link>
         </div>
       </nav>
       <div style={{ padding:'3rem 2rem', maxWidth:960, margin:'0 auto' }}>
         <div style={{ marginBottom:'3rem' }}>
-          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Members Area</span>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'#c9a96e', display:'block', marginBottom:'0.8rem' }}>Casa Shindy</span>
           <h1 style={{ fontFamily:'serif', fontStyle:'italic', fontSize:'clamp(2rem,5vw,3.5rem)', fontWeight:300, color:'#f8f6f2' }}>ようこそ、Casa Shindyへ。</h1>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:2, background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.07)' }}>
