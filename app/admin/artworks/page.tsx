@@ -26,6 +26,7 @@ export default async function ArtworksPage() {
                 <div style={{ fontSize:'0.75rem', color:'#c9a96e' }}>¥{art.price?.toLocaleString()}</div>
                 <span style={{ fontSize:'0.75rem', padding:'0.2rem 0.5rem', border:`1px solid ${art.is_sold ? 'rgba(217,64,48,0.4)' : 'rgba(29,184,67,0.4)'}`, color: art.is_sold ? '#d94030' : '#1db843', marginTop:'0.5rem', display:'inline-block' }}>
                   {art.is_sold ? 'SOLD OUT' : 'Available'}
+                  <a href={`/admin/artworks/${art.id}`} style={{ fontSize:'0.6rem', color:'#c9a96e', textDecoration:'none', border:'1px solid rgba(201,169,110,0.3)', padding:'0.2rem 0.6rem', marginTop:'0.5rem', display:'inline-block', marginLeft:'0.5rem' }}>編集</a>
                 </span>
               </div>
             </div>
