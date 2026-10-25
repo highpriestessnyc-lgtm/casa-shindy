@@ -5,7 +5,7 @@ const PRODUCTS = [
   { key:'kondate', icon:'🍱', name:'献立アプリ', desc:'毎日の献立をAIが提案。無料登録で使える。', price:490, href:'https://highpriestessnyc-lgtm.github.io/kondate-app/', type:'link', memberFree:true },
   { key:'bento', icon:'🥡', name:'弁当アプリ', desc:'お弁当レシピ管理。', price:490, priceId:'price_bento', type:'one_time' },
   { key:'bingo-ladder', icon:'📊', name:'BINGO LADDER LITE', desc:'SHINDYのFXステージ分析メソッド入門版。', price:1650, href:'https://bingo-ladder-lp.vercel.app/lite/', type:'link', featured:true },
-  { key:'stage3d', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。', price:2980, priceId:'price_1TdRQPDRTdCcXVmVrCBa2J1w', type:'one_time' },
+  { key:'stage3d', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。', price:2980, priceId:'price_1UUaUqDRTdCcXVmV8pQ3F47U', type:'one_time' },
   { key:'dance-history', icon:'📖', name:'ダンスの歴史本', desc:'ストリートダンスの歴史書。会員は無料。', price:450, href:'https://casa-shindy.vercel.app/members/dance-history', type:'link', memberFree:true },
   { key:'dancing-quest', icon:'🎮', name:'Dancing Quest', desc:'ダンサー育成ゲーム。無料DL。', price:0, href:'/shop/dancing-quest/download', type:'free' },
   { key:'bingo-analyzer', icon:'📈', name:'BINGO ANALYZER PRO', desc:'チャート分析AIツール。会員無料。', price:3500, href:'https://bingo-analyzer-pro.vercel.app', type:'link', memberFree:true },
