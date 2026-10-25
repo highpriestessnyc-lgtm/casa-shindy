@@ -7,7 +7,6 @@ const PAGES = [
   { href:'/members/columns', label:'コラム', icon:'📝' },
   { href:'/members/painter', label:'MA@PAINTER', icon:'🎨' },
   { href:'/members/dance-history', label:'ダンスの歴史', icon:'📖' },
-  { href:'/members/analyzer', label:'ANALYZER PRO', icon:'⚡' },
   { href:'/members/account', label:'アカウント', icon:'⚙️' },
 ]
 
