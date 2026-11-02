@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { getSupabase } from '@/lib/supabase'
+import { getSupabaseBrowser } from '@/lib/supabase'
 
 const MARQUEE_ITEMS = [
   'Monthly Dance Lesson','BINGO LADDER','献立アプリ','弁当アプリ',
@@ -60,7 +60,7 @@ function AuthModal({ onClose }: { onClose: () => void }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true); setError('')
-    const supabase = getSupabase()
+    const supabase = getSupabaseBrowser()
 
     if (mode === 'signup') {
       const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
@@ -172,7 +172,7 @@ export default function Home() {
   useEffect(() => {
     const check = async () => {
       try {
-        const supabase = getSupabase()
+        const supabase = getSupabaseBrowser()
         const { data: { session } } = await supabase.auth.getSession()
         if (!session) setShowAuth(true)
       } catch {
