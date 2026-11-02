@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { getSupabase } from '@/lib/supabase'
 
 const MARQUEE_ITEMS = [
   'Monthly Dance Lesson','BINGO LADDER','献立アプリ','弁当アプリ',
@@ -47,8 +48,142 @@ const SOLILOQUY = [
   { date:'2026.06.01', title:'近日公開', preview:'昨日は20年30年語り継がれる伝説の日に、、、' },
 ]
 
+// ── 認証モーダル ──────────────────────────────────────────
+function AuthModal({ onClose }: { onClose: () => void }) {
+  const [mode, setMode] = useState<'signup' | 'login'>('signup')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [done, setDone] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true); setError('')
+    const supabase = getSupabase()
+
+    if (mode === 'signup') {
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+      const { error } = await supabase.auth.signUp({
+        email, password,
+        options: { emailRedirectTo: appUrl + '/auth/callback' }
+      })
+      if (error) { setError(error.message); setLoading(false); return }
+      setDone(true)
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) { setError(error.message); setLoading(false); return }
+      onClose()
+      window.location.href = '/members'
+    }
+    setLoading(false)
+  }
+
+  const switchMode = (m: 'signup' | 'login') => {
+    setMode(m); setError(''); setEmail(''); setPassword('')
+  }
+
+  const overlayStyle: React.CSSProperties = {
+    position: 'fixed', inset: 0, zIndex: 9000,
+    background: 'rgba(8,8,8,0.85)', backdropFilter: 'blur(8px)',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    padding: '1rem', fontFamily: "'Didact Gothic', sans-serif",
+  }
+  const boxStyle: React.CSSProperties = {
+    width: '100%', maxWidth: 420, position: 'relative',
+    background: '#111', border: '1px solid rgba(255,255,255,0.07)',
+    padding: '3rem',
+  }
+
+  if (done) return (
+    <div style={overlayStyle} onClick={onClose}>
+      <div style={boxStyle} onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} style={{ position:'absolute', top:'1.2rem', right:'1.2rem', background:'none', border:'none', color:'rgba(248,246,242,0.4)', fontSize:'1.2rem', cursor:'pointer', lineHeight:1 }}>✕</button>
+        <div style={{ textAlign:'center' }}>
+          <div style={{ fontSize:'2rem', marginBottom:'1rem' }}>✉️</div>
+          <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.5rem', color:'#f8f6f2', marginBottom:'1rem', fontWeight:300 }}>確認メールを送信しました</h2>
+          <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.6)', lineHeight:1.8, marginBottom:'2rem' }}>{email} に確認メールを送りました。リンクをクリックして登録を完了してください。</p>
+          <button onClick={onClose} style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'0.9rem 2rem', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", fontWeight:'bold' }}>このまま見る →</button>
+        </div>
+      </div>
+    </div>
+  )
+
+  return (
+    <div style={overlayStyle} onClick={onClose}>
+      <div style={boxStyle} onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} style={{ position:'absolute', top:'1.2rem', right:'1.2rem', background:'none', border:'none', color:'rgba(248,246,242,0.4)', fontSize:'1.2rem', cursor:'pointer', lineHeight:1 }}>✕</button>
+        <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.4rem', color:'#f8f6f2', textAlign:'center', marginBottom:'2rem' }}>
+          Casa <span style={{ color:'#c9a96e' }}>Shindy</span>
+        </div>
+        <div style={{ display:'flex', marginBottom:'2rem', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
+          {(['signup', 'login'] as const).map(m => (
+            <button key={m} onClick={() => switchMode(m)} style={{
+              flex:1, background:'none', border:'none', cursor:'pointer',
+              padding:'0.7rem', fontSize:'0.75rem', letterSpacing:'0.25em',
+              textTransform:'uppercase', fontFamily:"'Didact Gothic',sans-serif",
+              color: mode === m ? '#c9a96e' : 'rgba(248,246,242,0.4)',
+              borderBottom: mode === m ? '1px solid #c9a96e' : '1px solid transparent',
+              marginBottom: -1,
+            }}>
+              {m === 'signup' ? '新規登録' : 'ログイン'}
+            </button>
+          ))}
+        </div>
+        {error && <div style={{ background:'rgba(217,64,48,0.1)', border:'1px solid rgba(217,64,48,0.3)', color:'#d94030', padding:'0.8rem', fontSize:'0.75rem', marginBottom:'1.2rem' }}>{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase' as const, color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>メールアドレス</label>
+          <input
+            style={{ width:'100%', background:'#0d0d0d', border:'1px solid rgba(255,255,255,0.07)', color:'#f8f6f2', padding:'0.9rem 1rem', fontSize:'0.85rem', outline:'none', marginBottom:'1.2rem', fontFamily:"'Didact Gothic',sans-serif", display:'block', boxSizing:'border-box' }}
+            type="email" value={email} onChange={e => setEmail(e.target.value)} required
+          />
+          <label style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase' as const, color:'rgba(248,246,242,0.6)', display:'block', marginBottom:'0.5rem' }}>パスワード{mode === 'signup' ? '（8文字以上）' : ''}</label>
+          <input
+            style={{ width:'100%', background:'#0d0d0d', border:'1px solid rgba(255,255,255,0.07)', color:'#f8f6f2', padding:'0.9rem 1rem', fontSize:'0.85rem', outline:'none', marginBottom:'1.5rem', fontFamily:"'Didact Gothic',sans-serif", display:'block', boxSizing:'border-box' }}
+            type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={mode === 'signup' ? 8 : undefined}
+          />
+          <button disabled={loading} style={{ width:'100%', background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase' as const, padding:'1rem', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", fontWeight:'bold' as const, opacity: loading ? 0.7 : 1 }}>
+            {loading ? '...' : mode === 'signup' ? 'アカウントを作成' : 'ログイン'}
+          </button>
+        </form>
+        {mode === 'login' && (
+          <div style={{ textAlign:'center', marginTop:'1rem' }}>
+            <a href="/auth/reset-password" style={{ fontSize:'0.7rem', letterSpacing:'0.15em', color:'rgba(248,246,242,0.35)', textDecoration:'none' }}>パスワードを忘れた方</a>
+          </div>
+        )}
+        <div style={{ textAlign:'center', marginTop:'1.5rem' }}>
+          <span style={{ fontSize:'0.72rem', color:'rgba(248,246,242,0.3)', letterSpacing:'0.1em' }}>
+            {mode === 'signup' ? 'すでにアカウントをお持ちの方は' : 'アカウントをお持ちでない方は'}
+          </span>
+          <button onClick={() => switchMode(mode === 'signup' ? 'login' : 'signup')} style={{ background:'none', border:'none', cursor:'pointer', fontSize:'0.72rem', color:'#c9a96e', letterSpacing:'0.1em', padding:'0 0.3rem' }}>
+            {mode === 'signup' ? 'ログイン →' : '新規登録 →'}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+// ─────────────────────────────────────────────────────────
+
 export default function Home() {
   const revealRefs = useRef<HTMLElement[]>([])
+  const [showAuth, setShowAuth] = useState(false)
+
+  useEffect(() => {
+    const check = async () => {
+      try {
+        const supabase = getSupabase()
+        const { data: { session } } = await supabase.auth.getSession()
+        if (!session) setShowAuth(true)
+      } catch {
+        // supabase未設定等のエラーは無視
+      }
+    }
+    check()
+  }, [])
+
+  const openAuth = useCallback(() => setShowAuth(true), [])
+  const closeAuth = useCallback(() => setShowAuth(false), [])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -62,6 +197,8 @@ export default function Home() {
   return (
     <main style={{ fontFamily: "'Didact Gothic', sans-serif" }}>
 
+      {showAuth && <AuthModal onClose={closeAuth} />}
+
       {/* NAV */}
       <nav style={{ position:'fixed', top:0, left:0, right:0, zIndex:200, display:'flex', justifyContent:'space-between', alignItems:'center', padding:'1.4rem 4rem', background:'rgba(8,8,8,0.92)', backdropFilter:'blur(20px)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
         <Link href="/" style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.3rem', color:'#f8f6f2', textDecoration:'none' }}>
@@ -71,7 +208,7 @@ export default function Home() {
           {[['#apps','Apps'],['#culture','Culture'],['#lesson','Lesson'],['#soliloquy','独り言'],['#painter','MA@PAINTER']].map(([href, label]) => (
             <a key={href} href={href} style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>{label}</a>
           ))}
-          <Link href="/auth/login" style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', textDecoration:'none' }}>ログイン</Link>
+          <button onClick={openAuth} style={{ fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(248,246,242,0.6)', background:'none', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", padding:0 }}>ログイン</button>
           <Link href="/members" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.25em', textTransform:'uppercase', padding:'0.7rem 1.5rem', textDecoration:'none', fontWeight:'bold' }}>Enter →</Link>
         </div>
       </nav>
@@ -94,7 +231,7 @@ export default function Home() {
             ダンス・FX・アプリ・ゲーム・料理・アート・カルチャー。SHINDYのすべてが、ここに集まる。このWORLDへ。
           </p>
           <div style={{ display:'flex', gap:'1rem', alignItems:'center', flexWrap:'wrap' }}>
-            <Link href="/members" style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', textDecoration:'none' }}>のぞいてみる →</Link>
+            <button onClick={openAuth} style={{ background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2.5rem', border:'none', cursor:'pointer', fontFamily:"'Didact Gothic',sans-serif", fontWeight:'bold' }}>のぞいてみる →</button>
             <a href="#apps" style={{ background:'transparent', color:'rgba(248,246,242,0.6)', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1rem 2rem', border:'1px solid rgba(255,255,255,0.07)', textDecoration:'none' }}>アプリ・ツール</a>
 
           </div>
