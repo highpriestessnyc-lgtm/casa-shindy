@@ -11,7 +11,7 @@ const PRODUCTS = [
   { key:'word-street', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語。無料登録で使える。', price:490, href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', type:'link', memberFree:true },
   { key:'cosmic-calendar', icon:'🌙', name:'COSMIC CALENDAR', desc:'複合占いアプリ。無料登録で使える。', price:490, href:'https://cosmic-calendar-six.vercel.app', type:'link', memberFree:true },
   { key:'kokushi', icon:'📜', name:'国史年表', desc:'日本史インタラクティブタイムライン。無料登録で使える。', price:490, href:'https://highpriestessnyc-lgtm.github.io/kokushi/', type:'link', memberFree:true },
-  { key:'bgm-mix-studio', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。', price:0, href:'/shop/bgm-mix-studio/download', type:'member-only', membersOnly:true, previewImage:'/previews/bgm-mix-studio-preview.png' },
+  { key:'bgm-mix-studio', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(ブラウザで動作)。クロスフェード・BPM自動検出&タイムストレッチ・EQ・ディレイ/リバーブ・24bit書き出し。', price:0, href:'/shop/bgm-mix-studio/download', type:'member-only', membersOnly:true, previewImage:'/previews/bgm-mix-studio-preview.png' },
 ]
 
 export default function ShopPage() {

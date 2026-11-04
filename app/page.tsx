@@ -21,7 +21,7 @@ const APPS = [
   { num:'09', icon:'🌙', name:'COSMIC CALENDAR', desc:'マヤ暦・算命学・四柱推命・西洋占星術の複合占いアプリ。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/cosmic-calendar', member:true, tier:'free' },
   { num:'10', icon:'📜', name:'国史年表', desc:'日本の歴史をインタラクティブに学べるタイムライン。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/kokushi', member:true, tier:'free' },
   { num:'12', icon:'🥁', name:'アフリカン リズム図鑑', desc:'ジャンベ・ドゥンドゥンなど、アフリカンダンスの伝統リズムを地方別に整理した図鑑。無料登録で使える。', price:'無料登録', type:'Free Account', href:'/access/african-rhythm', member:true, tier:'free' },
-  { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX・ナレーション機能。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
+  { num:'11', icon:'🎚️', name:'BGM MIX STUDIO', desc:'ダンス公演用BGM編集ソフト(ブラウザで動作)。クロスフェード・BPM自動検出&タイムストレッチ・EQ・ディレイ/リバーブ・24bit書き出し。会員限定。', price:'会員限定', type:'Members Only', href:'/shop/bgm-mix-studio/download', member:true },
 ]
 
 function renderAppCard(app: any) {

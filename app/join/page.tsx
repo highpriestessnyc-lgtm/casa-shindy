@@ -24,7 +24,7 @@ export default function JoinPage() {
   const FEATURES = [
     { icon:'💃', title:'Monthly Dance Lesson', sub:'月1回以上 動画レクチャー更新' },
     { icon:'📈', title:'BINGO ANALYZER PRO', sub:'チャート画像からBINGO LADDERでAI分析' },
-    { icon:'🎚️', title:'BGM MIX STUDIO', sub:'ダンス公演用BGM編集ソフト(Mac)' },
+    { icon:'🎚️', title:'BGM MIX STUDIO', sub:'ダンス公演用BGM編集ソフト(ブラウザで動作)' },
   ]
 
   return (
