@@ -21,12 +21,26 @@ export default async function BgmMixStudioDownload() {
         <span style={{ fontSize:'3rem', display:'block', marginBottom:'1.5rem' }}>🎚️</span>
         <h1 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'2rem', color:'#f8f6f2', marginBottom:'1rem', fontWeight:300 }}>BGM MIX STUDIO</h1>
         <p style={{ fontSize:'0.78rem', lineHeight:2, color:'rgba(248,246,242,0.6)', marginBottom:'2rem' }}>
-          ダンス公演用BGM編集ソフト(Mac)。クロスフェード・BPM自動検出&タイムストレッチ・トラックFX(ディレイ/リバーブ/宇宙人声)・ナレーション機能・複数選択・Undo/Redo対応。
+          ダンス公演用BGM編集ソフト。v16はブラウザで開くだけで動きます(インストール不要・Mac/Windows対応)。クロスフェード・BPM自動検出&タイムストレッチ・3バンドEQ・ディレイ/リバーブ・リミッター&ラウドネス正規化・24bit書き出し・CUEシート付きトラック分け書き出し。
         </p>
-        <a href="https://github.com/highpriestessnyc-lgtm/casa-shindy/releases/download/bgm-mix-studio-v1.0.0/BGM.MIX.STUDIO-1.0.0-arm64.dmg" style={{ display:'block', background:'#c9a96e', color:'#080808', fontSize:'0.75rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.1rem 2rem', textDecoration:'none', fontWeight:'bold', marginBottom:'1.5rem' }}>
-          ⬇️ ダウンロード (.dmg / Apple Silicon Mac用)
+        <a href="/shop/bgm-mix-studio/app" target="_blank" rel="noopener" style={{ display:'block', background:'linear-gradient(135deg,#c9a96e,#e8c98a)', color:'#080808', fontSize:'0.68rem', letterSpacing:'0.3em', textTransform:'uppercase', padding:'1.1rem 2rem', textDecoration:'none', fontWeight:'bold', marginBottom:'0.5rem' }}>
+          🎚️ アプリを開く (v16 / ブラウザ版)
         </a>
+        <p style={{ fontSize:'0.62rem', lineHeight:1.8, color:'rgba(248,246,242,0.35)', marginBottom:'1.5rem' }}>
+          Chrome / Safari / Edge で動作します。音源はお使いの端末内だけで処理され、アップロードされません。
+        </p>
+        <div style={{ textAlign:'left', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:6, padding:'1rem 1.2rem', marginBottom:'1.5rem' }}>
+          <div style={{ fontSize:'0.66rem', fontWeight:'bold', color:'#c9a96e', marginBottom:'0.5rem' }}>旧版(Mac用アプリ v1.0.0 / v15相当)について</div>
+          <p style={{ fontSize:'0.64rem', lineHeight:1.9, color:'rgba(248,246,242,0.5)', marginBottom:'0.7rem' }}>
+            v16ブラウザ版には、ナレーション生成・オートメーション・ボーカル除去/抽出はまだ入っていません。これらが必要な場合のみ、下の旧版をお使いください。
+          </p>
+          <a href="https://github.com/highpriestessnyc-lgtm/casa-shindy/releases/download/bgm-mix-studio-v1.0.0/BGM.MIX.STUDIO-1.0.0-arm64.dmg" style={{ fontSize:'0.64rem', color:'#c9a96e', textDecoration:'underline' }}>
+            ⬇️ 旧版をダウンロード (.dmg / Apple Silicon Mac用)
+          </a>
+        </div>
 
+        <details style={{ textAlign:'left', marginBottom:'1.5rem' }}>
+        <summary style={{ fontSize:'0.64rem', color:'rgba(248,246,242,0.45)', cursor:'pointer', marginBottom:'0.8rem' }}>旧版(.dmg)で「マルウェアがブロックされました」と出た場合</summary>
         <div style={{ textAlign:'left', background:'rgba(217,64,48,0.08)', border:'1px solid rgba(217,64,48,0.25)', borderRadius:6, padding:'1.2rem 1.4rem', marginBottom:'1.5rem' }}>
           <div style={{ fontSize:'0.75rem', fontWeight:'bold', color:'#e0958a', marginBottom:'0.6rem', letterSpacing:'0.05em' }}>
             ⚠️ 「マルウェアがブロックされました」と出た場合
@@ -45,6 +59,7 @@ export default async function BgmMixStudioDownload() {
             実行後は、Finderから通常通りダブルクリックで開けるようになります(以降は毎回この操作は不要です)。
           </p>
         </div>
+        </details>
 
         <p style={{ fontSize:'0.75rem', lineHeight:1.8, color:'rgba(248,246,242,0.6)', marginBottom:'1rem' }}>
           上記の警告が出ない場合でも、初回起動時に「開発元が未確認」の表示が出ることがあります。その場合はFinderでアプリを<strong>右クリック→「開く」</strong>を選んでください(2回目以降は通常通り開けます)。
