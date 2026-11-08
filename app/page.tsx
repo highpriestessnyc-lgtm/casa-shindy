@@ -48,6 +48,75 @@ const SOLILOQUY = [
   { date:'2026.06.01', title:'近日公開', preview:'昨日は20年30年語り継がれる伝説の日に、、、' },
 ]
 
+// ── ギルドマップ ──────────────────────────────────────────
+function GuildMap({ onEnter }: { onEnter: () => void }) {
+  const [hovered, setHovered] = useState<string | null>(null)
+  const rooms = [
+    { id:'dance', label:'DANCE LESSON', sub:'月イチ動画配信', href:'/members/lesson', icon:'🕺', chars:['🧍','💃','🕺'], col:'1 / 2', row:'2 / 3', color:'#5bc8d0', desc:'会員限定レッスン動画' },
+    { id:'fx', label:'BINGO LADDER', sub:'FX Trading', href:'/shop', icon:'📊', chars:['🧑‍💻','📈'], col:'3 / 4', row:'2 / 3', color:'#c9a96e', desc:'SHINDYのFX分析メソッド' },
+    { id:'painter', label:'MA@PAINTER', sub:'Art Gallery', href:'/members/painter', icon:'🎨', chars:['🧑‍🎨','🖼️'], col:'1 / 2', row:'3 / 4', color:'#d4a0c0', desc:'原画・限定プリント' },
+    { id:'apps', label:'APPS & TOOLS', sub:'Digital Products', href:'#apps', icon:'⚙️', chars:['🧑‍💻','🔧'], col:'3 / 4', row:'3 / 4', color:'#a0d4a0', desc:'アプリ・ツール一覧' },
+  ]
+  return (
+    <section id="guild" style={{ padding:'6rem 2rem', background:'linear-gradient(180deg,#080808 0%,#0a0d12 100%)', borderTop:'1px solid rgba(201,169,110,0.1)', borderBottom:'1px solid rgba(201,169,110,0.1)', overflow:'hidden', position:'relative' }}>
+      <div style={{ position:'absolute', inset:0, opacity:0.03, backgroundImage:'linear-gradient(rgba(201,169,110,1) 1px,transparent 1px),linear-gradient(90deg,rgba(201,169,110,1) 1px,transparent 1px)', backgroundSize:'40px 40px', pointerEvents:'none' }} />
+      <div style={{ maxWidth:900, margin:'0 auto', position:'relative' }}>
+        <div style={{ textAlign:'center', marginBottom:'3rem' }}>
+          <span style={{ fontSize:'0.75rem', letterSpacing:'0.4em', textTransform:'uppercase' as const, color:'#c9a96e', display:'block', marginBottom:'0.5rem' }}>◆ Casa Shindy World ◆</span>
+          <h2 style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'clamp(1.8rem,4vw,2.8rem)', fontWeight:300, color:'#f8f6f2', marginBottom:'0.5rem' }}>Guild Headquarters</h2>
+          <p style={{ fontSize:'0.75rem', color:'rgba(248,246,242,0.4)', letterSpacing:'0.2em' }}>各部屋をクリックして探索しよう</p>
+        </div>
+        <div style={{ border:'2px solid rgba(201,169,110,0.25)', background:'rgba(10,13,18,0.9)', position:'relative', overflow:'hidden' }}>
+          <div style={{ background:'rgba(201,169,110,0.08)', borderBottom:'1px solid rgba(201,169,110,0.2)', padding:'0.6rem 1.2rem', display:'flex', alignItems:'center', gap:'1.5rem', fontFamily:'monospace', fontSize:'0.7rem' }}>
+            <span style={{ color:'#c9a96e', letterSpacing:'0.2em' }}>⬡ CASA SHINDY</span>
+            <span style={{ color:'rgba(248,246,242,0.3)' }}>|</span>
+            <span style={{ color:'#5bc8d0' }}>● LIVE</span>
+            <span style={{ color:'rgba(248,246,242,0.3)' }}>|</span>
+            <span style={{ color:'rgba(248,246,242,0.5)' }}>MEMBERS: 32/32</span>
+            <span style={{ color:'rgba(248,246,242,0.3)' }}>|</span>
+            <span style={{ color:'#a0d4a0' }}>CONTENT: ACTIVE</span>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 160px 1fr', gridTemplateRows:'auto auto auto', gap:0, minHeight:480 }}>
+            <div style={{ gridColumn:'1 / 4', gridRow:'1 / 2', background:'linear-gradient(180deg,rgba(201,169,110,0.08),rgba(201,169,110,0.03))', borderBottom:'2px solid rgba(201,169,110,0.2)', display:'flex', alignItems:'center', justifyContent:'center', padding:'1.5rem', position:'relative', overflow:'hidden' }}>
+              <div style={{ position:'absolute', left:'10%', top:'50%', transform:'translateY(-50%)', fontSize:'1.5rem' }}>⚑</div>
+              <div style={{ position:'absolute', right:'10%', top:'50%', transform:'translateY(-50%)', fontSize:'1.5rem' }}>⚑</div>
+              <div style={{ textAlign:'center' }}>
+                <div style={{ fontSize:'2rem', marginBottom:'0.3rem' }}>🌐</div>
+                <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1.2rem', color:'#c9a96e', letterSpacing:'0.2em' }}>Casa Shindy HQ</div>
+              </div>
+              <div style={{ position:'absolute', right:'18%', top:'30%', fontSize:'1.2rem', animation:'airship 8s ease-in-out infinite' }}>🚁</div>
+            </div>
+            {rooms.map(room => (
+              <a key={room.id} href={room.href} onMouseEnter={() => setHovered(room.id)} onMouseLeave={() => setHovered(null)} style={{ gridColumn:room.col, gridRow:room.row, textDecoration:'none', display:'flex', flexDirection:'column', padding:'1.8rem', background:hovered === room.id ? `linear-gradient(135deg,rgba(10,13,18,0.95),${room.color}18)` : 'rgba(10,13,18,0.6)', borderRight:room.col === '1 / 2' ? '1px solid rgba(201,169,110,0.15)' : undefined, borderLeft:room.col === '3 / 4' ? '1px solid rgba(201,169,110,0.15)' : undefined, borderBottom:'1px solid rgba(201,169,110,0.1)', transition:'background 0.3s', position:'relative', overflow:'hidden', cursor:'pointer' }}>
+                <div style={{ position:'absolute', top:0, left:0, right:0, height:2, background:hovered === room.id ? room.color : 'transparent', transition:'background 0.3s' }} />
+                <div style={{ fontFamily:'monospace', fontSize:'0.65rem', color:room.color, letterSpacing:'0.3em', marginBottom:'0.6rem', opacity:0.8 }}>▪ {room.label}</div>
+                <div style={{ display:'flex', gap:'0.5rem', marginBottom:'1rem', fontSize:'1.6rem', flexWrap:'wrap' as const }}>
+                  {room.chars.map((c, i) => <span key={i} style={{ display:'inline-block', animation:`charBob${i%2} 2s ease-in-out ${i*0.3}s infinite` }}>{c}</span>)}
+                </div>
+                <div style={{ fontFamily:"'Cormorant Garamond',serif", fontStyle:'italic', fontSize:'1rem', color:'#f8f6f2', marginBottom:'0.3rem' }}>{room.icon} {room.sub}</div>
+                <div style={{ fontSize:'0.68rem', color:'rgba(248,246,242,0.4)', letterSpacing:'0.1em', lineHeight:1.6 }}>{room.desc}</div>
+                <div style={{ marginTop:'auto', paddingTop:'1rem', fontSize:'0.65rem', letterSpacing:'0.3em', color:room.color, textTransform:'uppercase' as const, opacity:hovered === room.id ? 1 : 0, transition:'opacity 0.3s' }}>Enter →</div>
+              </a>
+            ))}
+            <div style={{ gridColumn:'2 / 3', gridRow:'2 / 4', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', background:'linear-gradient(180deg,rgba(201,169,110,0.06),rgba(201,169,110,0.02))', borderLeft:'1px solid rgba(201,169,110,0.15)', borderRight:'1px solid rgba(201,169,110,0.15)', borderBottom:'1px solid rgba(201,169,110,0.1)', padding:'1.5rem 1rem', position:'relative', overflow:'hidden' }}>
+              <div style={{ position:'absolute', bottom:0, left:'50%', transform:'translateX(-50%)', width:3, height:'60%', background:'linear-gradient(180deg,transparent,rgba(91,200,208,0.4),rgba(91,200,208,0.1))', pointerEvents:'none' }} />
+              <div style={{ fontSize:'2.2rem', marginBottom:'0.5rem', zIndex:1, position:'relative' }}>👑</div>
+              <div style={{ fontSize:'2rem', zIndex:1, position:'relative', marginBottom:'0.8rem' }}>🧑‍🎤</div>
+              <div style={{ fontFamily:'monospace', fontSize:'0.6rem', color:'#c9a96e', letterSpacing:'0.3em', textAlign:'center', marginBottom:'0.3rem', zIndex:1, position:'relative' }}>COMMAND<br/>DECK</div>
+              <div style={{ fontSize:'0.6rem', color:'rgba(248,246,242,0.3)', textAlign:'center', letterSpacing:'0.1em', zIndex:1, position:'relative' }}>SHINDY</div>
+              <button onClick={onEnter} style={{ marginTop:'1.5rem', zIndex:1, position:'relative', background:'#c9a96e', color:'#080808', border:'none', cursor:'pointer', fontFamily:'monospace', fontSize:'0.6rem', letterSpacing:'0.2em', padding:'0.5rem 0.8rem', fontWeight:'bold' }}>ENTER</button>
+            </div>
+          </div>
+          <div style={{ background:'rgba(201,169,110,0.05)', borderTop:'1px solid rgba(201,169,110,0.15)', padding:'0.5rem 1.2rem', display:'flex', justifyContent:'space-between', alignItems:'center', fontFamily:'monospace', fontSize:'0.6rem', color:'rgba(248,246,242,0.3)' }}>
+            <span>CASA SHINDY WORLD v1.0</span><span style={{ color:'#5bc8d0' }}>● ALL SYSTEMS ACTIVE</span><span>2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+// ─────────────────────────────────────────────────────────
+
 // ── 認証モーダル ──────────────────────────────────────────
 function AuthModal({ onClose }: { onClose: () => void }) {
   const [mode, setMode] = useState<'signup' | 'login'>('signup')
@@ -254,6 +323,9 @@ export default function Home() {
         </div>
       </div>
 
+      {/* GUILD MAP */}
+      <GuildMap onEnter={openAuth} />
+
       {/* APPS */}
       <section id="apps" style={{ padding:'8rem 4rem' }}>
         <div style={{ maxWidth:960, margin:'0 auto' }}>
@@ -399,6 +471,9 @@ export default function Home() {
 
       <style>{`
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @keyframes charBob0 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes charBob1 { 0%, 100% { transform: translateY(-4px); } 50% { transform: translateY(0); } }
+        @keyframes airship { 0%, 100% { transform: translateX(0) translateY(0); } 50% { transform: translateX(-20px) translateY(-5px); } }
         @keyframes scrollPulse {
           0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
           50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
