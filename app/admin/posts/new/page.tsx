@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { getSupabase } from '@/lib/supabase'
+import { getSupabaseBrowser } from '@/lib/supabase'
 const CATS = [
   { value:'soliloquy', label:'Soliloquy' },
   { value:'market', label:'Market' },
@@ -22,7 +22,7 @@ export default function NewPostPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    const supabase = getSupabase()
+    const supabase = getSupabaseBrowser()
     const { error } = await supabase.from('posts').insert({ title, content, category, is_published: isPublished, image_url: imageUrl, video_url: videoUrl })
     if (error) { alert(error.message); setLoading(false); return }
     setDone(true)
@@ -44,7 +44,7 @@ export default function NewPostPage() {
         <input type="file" accept="image/*" onChange={async e => {
           const file = e.target.files?.[0]
           if (!file) return
-          const supabase = getSupabase()
+          const supabase = getSupabaseBrowser()
           const ext = file.name.split('.').pop()
           const path = `posts/${Date.now()}.${ext}`
           const { data, error } = await supabase.storage.from('images').upload(path, file, { upsert: true })

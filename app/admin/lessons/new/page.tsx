@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { getSupabase } from '@/lib/supabase'
+import { getSupabaseBrowser } from '@/lib/supabase'
 export default function NewLessonPage() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -13,7 +13,7 @@ export default function NewLessonPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    const supabase = getSupabase()
+    const supabase = getSupabaseBrowser()
     const { error } = await supabase.from('lessons').insert({ title, description, video_url: videoUrl, is_published: isPublished })
     if (error) { alert(error.message); setLoading(false); return }
     setDone(true)
