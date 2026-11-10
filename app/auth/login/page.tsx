@@ -1,6 +1,6 @@
 'use client'
 import { useState, Suspense } from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { getSupabaseBrowser } from '@/lib/supabase'
 
 function LoginForm() {
@@ -8,7 +8,6 @@ function LoginForm() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const router = useRouter()
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect') || ''
 
@@ -21,8 +20,9 @@ function LoginForm() {
     if (error) { setError(error.message); setLoading(false); return }
     const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
     const destination = redirect || (isAdmin ? '/admin' : '/members')
-    router.push(destination)
-    router.refresh()
+    // router.pushだとcookieがサーバーに届く前にページが描画されてadmin判定が外れるため
+    // window.location.hrefでフルリロードしてcookieを確実にサーバーに渡す
+    window.location.href = destination
   }
 
   return (
