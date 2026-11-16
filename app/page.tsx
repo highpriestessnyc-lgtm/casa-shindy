@@ -140,10 +140,11 @@ function AuthModal({ onClose }: { onClose: () => void }) {
       if (error) { setError(error.message); setLoading(false); return }
       setDone(true)
     } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) { setError(error.message); setLoading(false); return }
       onClose()
-      window.location.href = '/members'
+      const isAdmin = data.user?.email === 'high.priestess.nyc@gmail.com'
+      window.location.href = isAdmin ? '/admin' : '/members'
     }
     setLoading(false)
   }
