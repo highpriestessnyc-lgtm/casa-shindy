@@ -46,4 +46,11 @@ export const MEMBER_APPS: Record<string, { name: string; icon: string; href: str
     desc: 'ジャンベ・ドゥンドゥンなど、アフリカンダンスの伝統リズムを地方別に整理した図鑑。',
     tier: 'free',
   },
+  'rhythm-master': {
+    name: 'リズムマスター 刻んでGOGO',
+    icon: '🎧',
+    href: 'https://muse.ai/s/rizumugemu-xag6xcksxhz078/0gfDM_Ayzr14_8vGfBqUU70950kAuEiqHBk3bznMuXc',
+    desc: '4拍・8拍のフレーズを叩き返すリズムゲーム。世界を旅して、アフリカン、クラーベ、サンバ、ドラムンベースのシンコペーションとフィル（オカズ）を体で覚える。',
+    tier: 'free',
+  },
 }

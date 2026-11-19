@@ -8,6 +8,7 @@ const PRODUCTS = [
   { key:'stage3d', icon:'🌐', name:'STAGE3D', desc:'相場ステージを3D空間で視覚化。', price:2980, priceId:'price_1UUaUqDRTdCcXVmV8pQ3F47U', type:'one_time' },
   { key:'dance-history', icon:'📖', name:'ダンスの歴史本', desc:'ストリートダンスの歴史書。会員は無料。', price:450, href:'https://casa-shindy.vercel.app/members/dance-history', type:'link', memberFree:true },
   { key:'dancing-quest', icon:'🎮', name:'Dancing Quest', desc:'ダンサー育成ゲーム。無料DL。', price:0, href:'/shop/dancing-quest/download', type:'free' },
+  { key:'rhythm-master', icon:'🎧', name:'リズムマスター 刻んでGOGO', desc:'世界を旅するリズムゲーム。無料登録で遊べる。', price:0, href:'/access/rhythm-master', type:'link', memberFree:true },
   { key:'word-street', icon:'📚', name:'WORD STREET', desc:'ストリートカルチャーで学ぶ英語。無料登録で使える。', price:490, href:'https://word-street-git-main-highpriestessnyc-1447s-projects.vercel.app', type:'link', memberFree:true },
   { key:'cosmic-calendar', icon:'🌙', name:'COSMIC CALENDAR', desc:'複合占いアプリ。無料登録で使える。', price:490, href:'https://cosmic-calendar-six.vercel.app', type:'link', memberFree:true },
   { key:'kokushi', icon:'📜', name:'国史年表', desc:'日本史インタラクティブタイムライン。無料登録で使える。', price:490, href:'https://highpriestessnyc-lgtm.github.io/kokushi/', type:'link', memberFree:true },
